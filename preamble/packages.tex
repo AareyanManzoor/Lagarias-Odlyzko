@@ -1,0 +1,73 @@
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{tocbibind}%include toc in toc
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs} %\mathscr{}
+\usepackage{ragged2e}
+\usepackage[style=alphabetic-verb]{biblatex}
+\usepackage{ifthen}
+\usepackage{adjustbox}
+
+\usepackage{tikz-cd,tikz}
+    \usetikzlibrary{hobby, calc, intersections, decorations.markings, decorations.pathreplacing} %libraries
+    \tikzset{>=latex} %sets -> to render as -latex arrow tip
+                      %https://tex.stackexchange.com/questions/54796/how-to-set-default-style-for-arrow-tips-in-tikz
+\input{insbox} %used for a floating diagram in sec 13 --deri https://tex.stackexchange.com/a/486033
+%\usepackage{quiver}
+\usepackage{subfiles}
+
+%%%geometry/spacing etc
+\usepackage[b5paper]{geometry}
+\usepackage{setspace}
+\setstretch{1.25}
+%%%
+
+\usepackage{titlesec}
+
+%%%%% header
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[LE]{Effective versions of Chebotarev}
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+\fancyhead[RO]{\scshape Section \thesection: \rightmark}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{\iffootnote{0pt}{0.3pt}}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\part}[display]
+{\centering\scshape\huge}
+{Part \thepart}
+{0.5em}
+{}
+%%%%% header
+
+
+
+%%%hyperref and Friends go at the end
+\usepackage[bookmarks=true, colorlinks=true, linkcolor=blue, citecolor= red,hypertexnames=false,pdftex,
+            pdfauthor={Milnor, Stasheff},
+            pdftitle={Characteristic Classes},
+            pdfsubject={Differential Topology},
+            pdfkeywords={Milnor, Stasheff, Characteristic Classes, TeXromancers},
+            pdfproducer={Latex with hyperref},
+            pdfcreator={pdflatexl}]{hyperref}
+\usepackage[hypcap=true]{caption}
+\usepackage{xurl}
+
+% Needed for drawing
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}

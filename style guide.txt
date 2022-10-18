@@ -1,0 +1,24 @@
+Carefully read the preamble/operators[preamble].tex. This contains everything we have macro'd and we will require the usage of said macros to ensure that things are easier to change globally.
+
+For things like log, Re etc, the commands were already defined so its not in the operator preamble. So use \log, \Re etc wherever appropriate.
+
+use `` '' for quotations.
+
+always use \[\] for displaymode instead of $$ $$
+
+don't use \left \right, use \big \Big \bigg \Bigg for the correct sizes.
+
+Use \xoverline, \xhat and \xtilde for the respective operations.
+
+Use the environments for e.g. theorems or lemmas
+
+Use \begin{equation}\tag{8.1} [insert eqn here] \end{equation} for equation 8.1 for example
+
+The citations are done, use \cite{} to cite things from the bibliography.
+
+The numbering in this paper is easy fortunately. Here is what we will do: label each theorem/lemma just its number as it appears in the format \label{x.x} so theorem 8.1. is going to become \label{8.1}, and 1.12. would become \label{1.12}. Similarly for equations add parenthesis, so equation 8.1 is \label{(8.1)}. If you see these while typing, use \ref{} to reference these. so an excerpt
+"from equation (8.1) we can see ...." will become "from equation (\ref{(8.1)}) we can see ...."
+
+The prime ideal of K is a mathfrak p, use \p or \mathfrak{p} for it.
+
+Use mathbb for R,Q and C.

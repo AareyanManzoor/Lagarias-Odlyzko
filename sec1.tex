@@ -1,0 +1,22 @@
+\documentclass[./main]{subfiles}
+\begin{document}
+\section{Introduction}
+
+Let $K$ be an algebraic number field (finite extension of the rationals $\mathbb Q$) and $L$ a normal extension of $K$ with Galois group $G = G(L/K)$. Let $\disc_L$ and $\disc_K$ denote the absolute values of the discriminants of $L$ and $K$, respectively, and let $n_L = [L:Q]$, $n_K = [K:Q]$. Throughout this paper $\p$ will denote a prime ideal of $K$ and $P$ a prime ideal of $L$. If $\p$ is a prime ideal of $K$ which is unramified in $L$, then we use the Artin symbol $\ArtinSymbol{L/K}{\mathfrak p}$ to denote the conjugacy class of Frobenius automorphisms corresponding to prime ideals $P\mid \p$. For each conjugacy class $C$ of $G$, we define
+\[ \pi_C (x, L/K) = \Bigg\vert \Big\{\p : \p \text{ unramified in } L,\, \ArtinSymbol{L/K}{\p} = C,\, \norm_{K/Q}\p \le x \Big\} \Bigg\vert. \]
+
+The Chebotarev density theorem \cite{15-Tschebotareff1926} asserts that
+\[\tag{1.1}\label{(1.1)} \pi_C (x, L/K) \sim \frac{|C|}{|G|} \Li(x) \hspace{1em} \text{as } x\to\infty, \]
+
+where $\Li(x)$ is the familiar logarithmic integral
+\[ \Li(x) = \int_2^x \frac{\dd t}{\log t} \sim \frac{x}{\log x} \hspace{1em}\text{as }x\to\infty \]
+
+The Chebotarev density theorem generalizes many of the classical results on the distribution of primes and prime ideals. For example, if we consider the trivial extension $L = K$ of $K$ ($K$ does not have to be normal over $\mathbb Q$, then there is only one conjugacy class, and (\ref{(1.1)}) shows that the number of prime ideals of $K$ with norm $\le x$ is asymptotic to $\Li(x)$, which is exactly the prime ideal theorem. If we let $K = \mathbb Q$ and $L = \mathbb Q(e^{2\pi i/q})$, then the conjugacy classes of $G$ correspond to the residue classes modulo $q$, and (\ref{(1.1)}) gives us the prime number theorem for arithmetic progressions.
+
+One of the most important of the many applications of the Chebotarev density theorem deals with the group of an equation. Suppose that $f(x)$ is a monic polynomial whose coefficients are algebraic integers in $K$ and which is irreducible over $K$. Suppose further that $L$ is the splitting field of $f(x)$ over $K$. If we regard $G = G(L/K)$ as a permutation group acting on the roots of $f(x)$, then for almost all prime ideals $\p$ of $K$ the cycle structure of $\ArtinSymbol{L/K}{\p}$ depends on the factorization of $f(x)$ modulo $\p$, and vice versa. Thus if $G$ is known, then the Chebotarev density theorem tells us how often various factorizations occur as $\p$ runs through all the prime ideals of $K$. On the other hand, if we do not know $G$, then factoring $f(x)$ modulo the prime ideals of $K$ will yield the complete cycle structures of $G$, since by (\ref{(1.1)}) for every conjugacy class $C$ there are infinitely many primes $\p$ with $\ArtinSymbol{L/K}{\p} = C$. This can be very helpful in the determination of $G$ [\cite{16-waerden1970}, vol. 1, pp. 189-192], especially since by considering enough primes we can even determine the relative densities of elements of $G$ which have a given  cycle structure. (Unfortunately, sometimes this is not enough to determine $G$ completely, since it is possible to construct two nonisomorphic groups which have transitive permutation representations in which the number of elements with a given cycle structure is the same for both groups.) In these situations it is important to be able to compute a bound below which every conjugacy class will occur as the Artin symbol of a prime ideal of $K$.
+
+The usual proofs of the Chebotarev theorem contains either no error estimates at all, or else estimates which contain constants depending in some undetermined way on the fields $K$ and $L$. In particular, such estimates do not allow us to specify effectively a value $x_0 = x_0(L/K)$ such that
+% \[ \tag{
+
+
+\end{document}

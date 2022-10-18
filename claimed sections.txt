@@ -1,0 +1,23 @@
+Hello everyone, this is where to claim sections. Pick one section at a time, if you complete your section then you can indicate it and pick another section. This is a smaller project, so lets try to get the first typesetting done by 24th october.
+
+pick a section example:
+``sec 1 (409-417): Aareyan ''
+done section example:
+``sec 1 (409-417): Aareyan %done'' 
+Feel free to ask for help with sections in this document and also on the discord.
+
+There is a latex scan in mathpix.tex, a latex scan of this paper. Feel free to use these to aid your work.
+
+Please READ THE STYLE GUIDE before starting any typing.
+
+sec 1 (409-417): Andrew
+sec 2 (418-420): Seewoo
+sec 3 (421-429): Bhargavi
+sec 4 (429-431):
+sec 5 (431-439):
+sec 6 (440-446):
+sec 7 (446-452):
+sec 8 (452-457):
+sec 9 (457-462):
+
+if you want your name in credits, put it here: Aareyan Manzoor, Seewoo Lee

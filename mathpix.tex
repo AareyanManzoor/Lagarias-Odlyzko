@@ -1,0 +1,1301 @@
+\title{
+J.C. Lagarias and A.M. Odlyzko
+}
+
+\section{§1. Introduction}
+
+Let $K$ be an algebraic number field (finite extension of the rationals Q) and $L$ a normal extension of $K$ with Galois group $G=G(L / K)$. Let $d_{L}$ and $d_{K}$ denote the absolute values of the discriminants of $L$ and $K$, respectively, and let $n_{L}=[L: Q], \quad n_{K}=[K: Q]$. Throughout this paper $P$ will denote a prime ideal of $K$ and $P$ a prime ideal of L. If $P$ is a prime ideal of $K$ which is unramified in $L$, then we use the Artin symbol $\left[\frac{L / K}{P}\right]$ to denote the conjugacy class of Frobenius automorphisms corresponding to prime ideals $P \mid P$. For each conjugacy class C of $G$, we define $\pi_{C}(x, L / K)=\mid\left\{P ; P\right.$ unramified in $\left.L,\left[\frac{L / K}{P}\right]=C, N_{K / Q} P \leqslant x\right\} \mid$. The Chebotarev density theorem [15] asserts that
+
+$$
+\pi_{C}(x, L / K) \sim \frac{|C|}{|G|} \operatorname{Li}(x) \quad \text { as } x \rightarrow \infty
+$$
+
+where $L i(x)$ is the familiar logarithmic integral 
+
+$$
+\operatorname{Li}(x)=\int_{2}^{x} \frac{d t}{\log t} \sim \frac{x}{\log x} \text { as } x \rightarrow \infty .
+$$
+
+The Chebotarev density theorem generalizes many of the classical results on the distribution of primes and prime ideals. For example, if we consider the trivial extension $L=K$ of $K$ ( $K$ does not have to be normal over $Q$ ), then there is only one conjugacy class, and (l.1) shows that the number of prime ideals of $K$ with norm $\leqslant x$ is asymptotic to Li $(x)$, which is exactly the prime ideal theorem. If we let $K=Q$ and $L=Q\left(e^{2 \pi i / q}\right)$, then the conjugacy classes of G correspond to the residue classes modulo q, and (1.1) gives us the prime number theorem for arithmetic progressions. One of the most important of the many applications of the Chebotarev density theorem deals with the group of an equation. Suppose that $f(x)$ is a monic polynomial whose coefficients are algebraic integers in $K$ and which is irreducible over $K$. Suppose further that $L$ is the splitting field of $f(x)$ over $K$. If we regard $G=G(L / K)$ as a permutation group acting on the roots of $f(x)$, then for almost all prime ideals $P$ of $K$ the cycle structure of $\left[\frac{L / K}{P}\right]$ depends on the factorization of $f(x)$ modulo $P$, and vice versa. Thus if $G$ is known, then the Chebotarev density theorem tells us how often various factorizations occur as $P$ runs through all the prime ideals of $K$. On the other hand, if we do not know $G$, then factoring $f(x)$ modulo the prime ideals of $K$ will yield the complete cycle structures of $G$, since by $(I . I)$ for every conjugacy class $C$ there are infinitely many primes $P$ with $\left[\frac{L / K}{P}\right]=C$. This can be very helpful in the determination of $G[16 ;$ vol. 1 , pp. 189-192], especially since by considering enough primes we can even determine the relative densities of elements of $G$ which have a given cycle structure. (Unfortunately, sometimes this is not enough to determine G completely, since it is possible to construct two nonisomorphic groups which have transitive permutation representations in which the number of elements with a given cycle structure is the same for both groups.) In these situations it is important to be able to compute a bound below which every conjugacy class will occur as the Artin symbol of a prime ideal of $K$.
+
+The usual proofs of the Chebotarev theorem contain either no error estimates at all, or else estimates which contain constants depending in some undetermined way on the fields $K$ and L. In particular, such estimates do not all us to specify effectively a value $\mathrm{x}_{0}=\mathrm{x}_{0}(\mathrm{~L} / \mathrm{K})$ such that
+
+$$
+\pi_{C}(x, L / K)>0 \text { if } x \geq x_{0} \text {. }
+$$
+
+The purpose of this paper is to prove two versions of the Chebotarev theorem, each of which has an error term which is an explicit and effectively computable function of $x, n_{L}, d_{L}$, and $|C| /|G|$. One version assumes the truth of the Generalized Riemann Hypothesis (GRH) and the other holds unconditionally We first state the conditional result.
+
+Theorem 1.1. There exists an effectively computable positive absolute constant $c_{1}$ such that if the GRH holds for the Dedekind zeta function of $I$, then for every $x>2$, $\left|\pi_{C}(x, L / K)-\frac{|C|}{|G|} \operatorname{Li}(x)\right| \leqslant c \quad\left\{\frac{|C|}{|G|} x^{\frac{7}{2}} \log \left(a_{L} x^{n} L^{L}\right)+\log d_{L}\right\}$
+
+This theorem yields immediately a value of $x_{0}$ such that (I.2) holds. [We utilize here the estimate $n_{L}^{-1} \log \alpha_{L}>1+\varepsilon$ for some $\varepsilon>0$, valid for $n_{L}>1$. It follows from Minkowski's discriminant bound, and it can also be derived from (5.11) (see [1]] ).]
+
+Corollary $1.2$ There exists an effectively computable positive absolute constant $c_{2}$ such that if the GRH holds for the Dedekind zeta function of $L \neq Q$, then for every conjugacy class $\mathrm{C}$ of $\mathrm{G}$ there exists an unramified prime ideal $P$ in $K$ such that $\left[\frac{L / K}{P}\right]=C$ and
+
+$$
+N_{K} / Q \leqslant c_{2}\left(\log d_{L}\right)^{2}\left(\log \log d_{L}\right)^{4} \text {. }
+$$
+
+( If $L=Q, P=$ (2) yields a solution.)
+
+At the end of this paper we will indicate how the above estimate can be improved so as to eliminate the log log $d_{L}$ term.
+
+We next state the unconditional result.
+
+Theorem 1.3. If $\mathrm{n}_{L}>I$ then $\zeta_{L}(\mathrm{~s})$ has at most one zero in the region defined by $s=\sigma+$ it with
+
+$1-\left(4 \log d_{L}\right)^{-1} \leqslant \sigma \leqslant 1, \quad|t| \leqslant\left(4 \log d_{L}\right)^{-1} \cdot(1.5)$
+
+(If $n_{L}=1, L=Q$ and there is no zero in $|t| \leqslant 14$, $\sigma>0$. If such a zero exists, it must be real and simple, and we denote it by $\beta_{0}$
+
+Further, there exist absolute effectively computable constants $c_{3}$ and $c_{4}$ such that if
+
+then
+
+$$
+x \geqslant \exp \left(\operatorname{lon}_{L}\left(\log d_{L}\right)^{2}\right)
+$$
+
+$$
+\begin{aligned}
+&\left|\pi_{C}(x)-\frac{|C|}{|G|} L i(x)\right| \leqslant \frac{|C|}{|G|} \operatorname{Li}\left(x^{B}\right) \\
+&\quad+c_{3} x \exp \left(-c_{4} n^{-\frac{1}{2}}(\log x)^{\frac{1}{2}}\right)
+\end{aligned}
+$$
+
+where the $\beta_{0}$ term is present only when $\beta_{0}$ exists.
+
+Because of the presence of the $\beta_{0}$ factor, Theorem $1.3$ does not fully meet our criterion of effectiveness, which is that the error term should depend only on $\mathrm{x}, \mathrm{n}_{L}, \mathrm{~d}$, and $|\mathrm{C}| /|\mathrm{G}|$. However, this defect can be remedied by utilizing any effective bound for $\beta_{0}$. In most cases the best known such bound is that of $\mathrm{Stark}[13 ; \mathrm{p} .148]$, which we quote below.
+
+Theorem $1.4$ Let the notation be as in Theorem $1.3$, and let $m_{L}=4$ if 1 is normal over $Q, m_{L}=16$ if there is a sequence of fields $Q=k_{0} \subset k_{1} \subset \ldots \subset k_{r}=$ I with each field normal over the preceding one, and $m_{L}=4 n_{L}$ !
+
+otherwise. Then there exists an effectively computable
+
+absolute constant $c_{5}$ such that
+
+$\beta_{0}<\max \left[1-\left(m_{L} \log a_{L}\right)^{-1}, \quad 1-\left(c_{5} d_{L}^{1 / n_{L}}\right)^{-1}\right]$.
+
+Even if $\beta_{0}$ does not exist, Theorem $1.3$ does not give
+
+a good unconditional bound for the smallest norm of a prime
+
+ideal whose Artin symbol is a given conjugacy class. A
+
+reasonable conjecture might be that there should be an
+
+effectively computable absolute constant c such that for
+
+every normal extension $\mathrm{L} / \mathrm{K}$ and every conjugacy class $\mathrm{C}$ of
+
+$G(L / K)$, there should be an unramified $P$ with $\left[\frac{L / K}{P}\right]=C$
+
+and
+
+$$
+N_{K / Q} P \leqslant\left(\log a_{L}\right)^{C} \text {. }
+$$
+
+When I is a cyclotomic extension of $K=Q,(1.9)$ is
+
+equivalent to Linnik's theorem $[1 ;$ p. 39]. However, if
+
+$K=Q$ and $L=Q(\sqrt{d})$ is a quadratic extension of $Q$, the
+
+determination of the least prime $p$ with $\left[\frac{L / Q}{(p)}\right] \neq\{I\}$
+
+corresponds to the problem of determining the least
+
+quadratic nonresidue $(\bmod d)$, and for this problem no unconditional bound better than
+
+$$
+p \leqslant c_{6} d_{L}^{c}
+$$
+
+is known, where $c_{6}$ and $c_{7}$ are positive constants. Thus without some major new ideas it would probably be very difficult to prove an unconditional result as good as (1.9). However, by using slightly different techniques (which are designed to detect prime ideals rather than estimate their total number) one can prove the following result [7].
+
+Theorem There exist effectively computable positive absolute constants $\mathrm{b}_{1}$ and $\mathrm{b}_{2}$ such that for every conjugacy class $C$ of $G$ there exists an unramified prime ideal $P$ of $K$ such that $\left[\frac{L / K}{P}\right]=C$ and
+
+$$
+N_{K / Q}{ }^{P} \leqslant b d_{1}^{b_{2}}
+$$
+
+The approach used in this paper has a long history. The argument given here may be viewed as a direct descendent of de la Vallee Poussin's proof of the prime number theorem.
+
+We follow closely the pattern of Davenport's treatment [2]
+
+of the prime number theorem for arithmetic progressions.
+
+The main innovation here is the careful treatment of the
+
+dependencies of various constants on $n_{L}$ and $d_{L}$ (cf.
+
+$[2,4,5,8,10])$
+
+Aside from some slight acquaintance with algebraic and
+
+analytic number theory, this paper also assumes knowledge
+
+of the basic properties of Hecke and Artin L-functions [6].
+
+The deepest of these results is the abelian reciprocity law,
+
+which tells us that an abelian Artin L-series is a Hecke
+
+L-series, and so is analytic for $s \neq 1$
+
+Throughout this paper $c_{1}, c_{2}, \ldots$ will denote
+
+effectively computable positive absolute constants. (In
+
+particular, they are independent of $K$ and L.) The
+
+Vinogradov notation
+
+$$
+f \leqslant g
+$$
+
+will be used to denote the existence of an effectively
+
+computable positive absolute constant A (not necessarily
+
+the same in each occurrence) such that
+
+$$
+|f| \leqslant A g,
+$$
+
+in the range indicated. §2. Outline of the main argument
+
+The main argument is primarily concerned with the derivation of an asymptotic formula with an explicit error term for a weighted prime-power-counting function $\psi_{C}(x)=\psi_{C}(x, L / K)$ associated to $\pi_{C}(x, L / K)$. It is defined by
+
+$$
+\begin{aligned}
+& \psi_{C}(x, L / K)=\sum_{N_{K / Q} P^{m}}^{P^{m}} \leqslant x \quad \log \left(N_{K / Q} P\right) \cdot \\
+& P \text { unramified } \\
+& \left[\frac{\mathrm{L} / \mathrm{K}}{\mathrm{P}}\right]^{\mathrm{m}}=\mathrm{C}
+\end{aligned}
+$$
+
+The details of this argument are complicated, but the main steps are simple in conception:
+
+(i) $\psi_{C}(x)$ differs from a truncated inverse Mellin transform
+
+$$
+I_{C}(x, T)=\frac{1}{2 \pi i} \int_{\sigma_{0}-i T}^{\sigma+i T} F_{C}(s) \frac{x^{s}}{s} d s
+$$
+
+by a remainder term $R_{1}(x, T)$.
+
+(ii) $F_{C}(s)$ can in fact be written as a linear combination of logarithmic derivatives of Hecke (abelian) L-functions. As a consequence, all the singularities of $F_{C}(s)$, 
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-11.jpg?height=968&width=996&top_left_y=219&top_left_x=178)
+
+
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-12.jpg?height=1577&width=995&top_left_y=217&top_left_x=357)
+
+§3. Artin L-functions and Mellin transforms
+
+In this section we establish the relation between $\psi_{C}(x)$ and a certain truncated inverse Mellin transform. Throughout this and subsequent sections we will use the abbreviations $\pi_{C}(x), \quad \psi_{C}(x)$, and $N$ for $\pi_{C}(x, L / K)$, $\psi_{C}(x, L / K)$, and $N_{K} / Q$, respectively. We will also use $\phi$ to denote irreducible characters of $G=G(L / K)$.
+
+For each irreducible character $\phi$ of $G$ we define
+
+$$
+\phi_{K}\left(p^{m}\right)=\frac{1}{e} \sum_{\alpha \varepsilon I} \phi\left(\tau^{m} \alpha\right),
+$$
+
+where I is the inertia group of $P$, one of the prime ideal factors of $P, e=|I|$, and $\tau$ is one of the Frobenius automorphisms corresponding to $P$. If $L(s, \phi, L / K)$ is the Artin L-series associated to $\phi$, then for $\operatorname{Re}(s)>I$ we have
+
+$$
+-\frac{L^{\prime}}{L}(s, \phi, L / K)=\sum_{P} \sum_{m=1}^{\infty} \phi_{K}\left(P^{m}\right) \log (N P)(N P)^{-m s},
+$$
+
+where the outer sum is over all the prime ideals of $K$. We should also note that the definitions (3.1) and (3.2) apply equally well to reducible characters.
+
+To single out those $P^{m}$ with $\left[\frac{L / K}{P}\right]^{m}=C$, we will use the characters $\phi$. (Unfortunately this works only to the extent that some extraneous prime powers $p^{m}$ corresponding to $P$ that ramify in $L$ are also included.) Suppose that $g \&$ C. We define a function $f_{C}: G \rightarrow \mathbb{C}$ by
+
+$$
+f_{C}=\sum_{\phi} \bar{\phi}(g) \phi .
+$$
+
+Then the orthogonality relations for characters imply that
+
+Hence if
+
+$$
+f_{C}(\tau)=\left\{\begin{array}{cl}
+\frac{|G|}{|C|} & \text { if } \quad \tau \in C, \\
+0 & \text { if } \quad \tau \notin C .
+\end{array}\right.
+$$
+
+$$
+F_{C}(s)=-\frac{|C|}{|G|} \sum_{\phi} \bar{\phi}(g) \frac{L^{\prime}}{L}(s, \phi, L / K)
+$$
+
+then (3.2) through (3.5) show that for $\operatorname{Re}(\mathrm{s})>1$ we have the Dirichlet series expansion
+
+$$
+F_{C}(s)=\sum_{P} \sum_{m=1}^{\infty} \theta\left(P^{m}\right) \log (N P)(N P)^{-m s}
+$$
+
+where for $P$ unramified in $L$ we have
+
+$$
+\theta\left(P^{m}\right)= \begin{cases}1 & \text { if }\left[\frac{L / K}{P}\right]^{m}=c \\ 0 & \text { otherwise }\end{cases}
+$$
+
+and $\left|\theta\left(P^{m}\right)\right| \leqslant I$ if $P$ ramifies in $L$. Equation $(3.6)$ shows that except for the ramified prime factors, $\psi_{C}(x)$ is a partial sum of the coefficients of $F_{C}(s)$. To obtain $\psi_{C}(x)$ from $F_{C}(s)$ we will use the following well-known truncated version of the inverse Mellin transform $[14 ;$ p. 54], [2; pp. 109-110]
+
+Lemma 3.1. If $y>0, \sigma>0$, and $T>0$, then $\left|\frac{1}{2 \pi i} \int_{\sigma-i T}^{\sigma+i T} \frac{y^{s}}{s} d s-1\right| \leqslant y^{\sigma} \min \left(1, T^{-1}|\log y|^{-1}\right)$ if $y>1$, $\left|\frac{1}{2 \pi i} \int_{\sigma-i T}^{\sigma+i T} \frac{y^{s}}{s} d s-\frac{1}{2}\right| \leqslant \sigma T^{-1} \quad$ if $y=1$, and $\left|\frac{1}{2 \pi i} \int_{\sigma-i T}^{\sigma+i T} \frac{y^{s}}{s} d s\right| \leqslant y^{\sigma} \min \left(1, T^{-1}|\log y|^{-1}\right)$ if $0<y<1$. Let $\sigma_{0}>1, \quad x \geqslant 2$, and define $I_{C}(x, T)=\frac{1}{2 \pi i} \int_{\sigma_{0}-i T}^{\sigma_{0}+i T} F_{C}(s) \frac{x^{S}}{s} d s$
+
+Since the Dirichlet series in $(3.6)$ is absolutely convergent 
+
+$$
+\begin{aligned}
+& \text { for } \operatorname{Re}(s)>1 \text {, we can integrate term by term (with the } \\
+& \text { help of Lemma 3.1) to obtain } \\
+& \left|I_{C}(x, T)-\sum_{P, m} \theta\left(P^{m}\right) \log \mathbb{N} P\right| \leqslant \sum_{P, m}\left\{\log \mathbb{N}+\sigma_{O} T^{-1}\right\} \\
+& N P^{m} \leqslant x \quad \quad N P^{m}=x \\
+& +R_{0}(x, T), \\
+& \text { where } \\
+& R_{0}(x, T)=\sum_{P, m}\left(\frac{x}{N P^{m}}\right)^{\sigma} \min \left(1, T^{-1}\left|\log \frac{x}{N P^{m}}\right|^{-1}\right) \log \mathbb{N} P \\
+& N P^{m} \neq x \\
+& \text { and where the sum on the right side of (3.8) is present } \\
+& \text { only when there are } P \text { and } m \text { with } N^{m}=x \text {. Now the sum on } \\
+& \text { the left side of }(3.8) \text { equals } \psi_{C}(x) \text {, except for the ramifier } \\
+& \text { prime terms. However, } N P \geqslant 2 \text { for each prime ideal } p \text {, all } \\
+& \text { the ramified prime ideals } P \text { divide the discriminant of } L \\
+& \text { over K, and so } \\
+& \left|P_{m}^{\sum} \theta\left(P^{m}\right) \log N P-\psi_{C}(x)\right| \leqslant \sum_{P, m} \sum^{m} \log \mathbb{P} \\
+& N P^{m} \leqslant x \quad \quad P \text { ramified } \\
+& N P^{m} \leqslant x \\
+& \leqslant
+\end{aligned}
+$$
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-16.jpg?height=265&width=1084&top_left_y=1678&top_left_x=359)
+
+(We should remark that this estimate would be the same even if C were a union of conjugacy classes.) Also, there are at most $n_{K}$ distinct pairs $P, m$ such that $N^{m}=x$, and so
+
+$$
+\sum^{\sum}, m \quad \log N P \leqslant n_{K} \log x .
+$$
+
+$$
+\begin{aligned}
+& N^{m}=x
+\end{aligned}
+$$
+
+Thus (3.8) yields
+
+$$
+\psi_{C}(x)=I_{C}(x, T)+R_{1}(x, T),
+$$
+
+where
+
+$R_{1}(x, T) \leqslant 2 \log x \log d_{L}+n_{K} \sigma O^{-1}+n_{K} \log x+R_{O}(x, T)$.
+
+The remainder of this section is devoted to establishing an estimate for $R_{0}(x, T)$
+
+So far we allowed $\sigma_{0}$ to be any number $>1$. We now define
+
+$$
+\sigma_{0}=1+(\log x)^{-1}
+$$
+
+While this is only one of many possible choices, it is quite convenient, not least because of the relation $x^{0}=$ ex. We now write $R_{0}(x, T)=S_{1}+S_{2}+S_{3}$, where $S_{1}$ consists of those terms of $(3.9)$ for which $N^{m} \leqslant \frac{3}{4} x$ or $N^{m} \geqslant \frac{5}{4} x$, $\mathrm{S}_{2}$ of those for which $\left|x-\mathbb{N} P^{m}\right| \leqslant 1$, and $\mathrm{S}_{3}$ of the remaining 
+
+$$
+\begin{aligned}
+& \text { ones. If } N^{p^{m}} \leqslant \frac{3}{4} x \text { or } N p^{p^{m}} \geqslant \frac{5}{4} x \text {, then } \\
+& \left|\log \frac{x}{N P^{m}}\right| \geqslant \log \frac{5}{4}, \\
+& \min \left(1, T^{-1}\left|\log \frac{x}{N P^{m}}\right|^{-1}\right) \ll T^{-1} \quad \text { for } T \geqslant 1 \text {, } \\
+& \text { and so } \\
+& S_{1} \ll x^{-1} \sum_{P, m}(N P)^{-m \sigma} 0 \log N P \\
+& =x T^{-1}\left[-\frac{\zeta_{K}}{\zeta_{K}}\left(\sigma_{0}\right)\right]
+\end{aligned}
+$$
+
+To bound this term we use an auxiliary result.
+
+Lemma $3.2$. For $\sigma>1$,
+
+$$
+-\frac{\zeta_{K}^{\prime}}{\zeta_{K}}(\sigma) \leqslant-n_{K} \frac{\zeta_{Q}^{\prime}}{\zeta_{Q}}(\sigma) \text {. }
+$$
+
+Proof We have
+
+$$
+\begin{aligned}
+&-\frac{K}{\zeta_{K}^{\prime}}(\sigma)=\sum_{P} \frac{\log N P}{(N P)^{\sigma}-1},-\frac{\zeta_{Q}}{\zeta_{Q}}(\sigma)=\sum_{p}^{\frac{\log P}{\sigma} p^{\sigma}-1}, \\
+&\text { where in the second sum } p \text { runs through the rational primes } \\
+&\text { Now for each prime ideal } P, N P=p^{k} \text { for some positive } \\
+&\text { integer } k \text {. Thus }
+\end{aligned}
+$$
+
+
+
+$$
+\begin{aligned}
+& \frac{\log N^{P}}{(N P)^{\sigma}-1}=\frac{k \log p}{p^{k \sigma}-1}=\frac{k}{p^{(k-1) \sigma}+\ldots+1} \cdot \frac{\log p}{p^{\sigma}-1} \leqslant \frac{\log p}{p^{\sigma}-1} \\
+& \text { Also, there are at most } n_{K} \text { distinct } P \text { lying over a given } \\
+& \text { rational prime } p \text {, so that } \\
+& -\frac{\zeta_{K}^{\prime}}{\zeta_{K}}(\sigma) \leqslant n_{K} \sum_{p} \frac{\log p}{p^{\sigma}-1}=-n_{K} \frac{\zeta_{Q}^{\prime}}{\zeta_{Q}}(\sigma), \quad q \cdot e \cdot d . \\
+& \text { Since } \\
+& -\frac{\zeta_{Q}^{\prime}}{\zeta_{Q}}(\sigma) \ll(\sigma-1)^{-1} \\
+& \text { for } \sigma>1 \text {, Lemma } 3.2 \text { and }(3.13) \text { show that for } T \geqslant 1 \text {, } \\
+& S_{1} \ll n_{K} x^{-1} \log x \\
+& \text { The second sum } \mathrm{S}_{2} \text { consists of those terms } p^{m} \text { for which } \\
+& 0<\left|N P^{m}-x\right| \leqslant 1 \text {. There are at most } 2 n_{K} \text { of } \operatorname{such} P^{m} \text { and } \\
+& \text { since } \\
+& \min \left(1, T^{-1}\left|\log \frac{x}{N P^{m}}\right|^{-1}\right) \leqslant 1,
+\end{aligned}
+$$
+
+we obtain
+
+$$
+\begin{aligned}
+& s_{2} \leqslant 2 n_{K} \log (x+1)\left(\frac{x}{x-1}\right)^{\sigma} \\
+& \ll n_{K} \log x
+\end{aligned}
+$$
+
+The final sum $\mathrm{S}_{3}$ consists of those terms $p^{m}$ for which $1<\left|N P^{m}-x\right|<\frac{1}{4} x$. Here we use the estimate 
+
+$$
+\begin{aligned}
+& \left|\log \frac{x}{n}\right|^{-1} \leqslant \frac{2 n}{|x-n|}, \\
+& \text { valid for } n \geqslant \frac{1}{2} x \text {, to obtain } \\
+& \mathrm{S}_{3} \ll T^{-1} \log x \quad \sum_{n} \quad\left|\log \frac{x}{n}\right|^{-1} \sum_{P, m} 1 \\
+& l<|n-x|<\frac{1}{4} x \quad N P^{m}=n \\
+& \ll n_{K} x T^{-1} \log x \quad \sum \quad \frac{1}{\mathrm{k}} \\
+& I \leqslant k<\frac{1}{4} x \\
+& \ll n_{K} x T^{-1}(\log x)^{2} . \\
+& \text { Putting ( } 3.14)-(3.16) \text { together we obtain } \\
+& R_{0}(x, T) \ll n_{K} \log x+n_{K} x T^{-1}(\log x)^{2}, \\
+& \text { valid for all } x \geqslant 2, T \geqslant 1 \text {. If we now combine (3.17) with } \\
+& \text { (3.11), we obtain finally the estimate } \\
+& R_{1}(x, T) \ll \log x \log d_{L}+n_{K} \log x+n_{K} x T^{-1}(\log x)^{2}, \\
+& \text { valid for all } x \geqslant 2, T \geqslant 1 \text {, which was the goal of this } \\
+& \text { section. We should mention here that the } \log x \log d_{L} \\
+& \text { term in (3.18) (which came from the ramified primes) would } \\
+& \text { have been the same even if } C \text { were to be the union of any } \\
+& \text { number of conjugacy classes. Let us also note that if } 
+\end{aligned}
+$$
+
+$I \neq Q$, then $n_{K} \leqslant n_{L} \ll \log d_{L}$, and so the second term on the right side of $(3.18)$ can be absorbed in the first one.
+
+§4. Reduction to the case of Hecke L-functions Our definition $(3.5)$ of $F_{C}(\mathrm{~s})$ was in terms of Artin I-functions corresponding to the (usually nonlinear) characters of $G(L / K)$. In this section we show that $F_{C}(\mathrm{~s})$ can be written in terms of Hecke (abelian) L-functions. This will enable us to obtain much better results on the location and density of the singularities of $F_{C}(s)$. The reduction we will use is due to Deuring [3] (later rediscovered by MacCluer [9]). We learned of it from [10], and should like to thank J. -P. Serre for bringing Moreno's paper to our attention and for supplying the following formulation of Deuring's idea.
+
+In defining $F_{C}(s)$ by $(3.5)$, we have already selected an element $g \in C$. Let $H=\langle g\rangle$ be the cyclic group generated by $g$, $E$ the fixed field of $H$, and let $x$ denote the irreducible characters of $H$. Since $H$ is cyclic, the characters $x$ are one-dimensional. We will retain this notation for the rest of this paper. Lemma 4.1. We have
+
+$$
+F_{C}(s)=-\frac{|C|}{|G|} \quad \sum_{X} \bar{X}(g) \frac{L^{\prime}}{L}(s, X, L / E)
+$$
+
+$\underline{\text { Proof }}$ Let $\tau: H \rightarrow \mathbb{C}$ be the class function defined by
+
+$$
+\tau(h)=\left\{\begin{array}{lll}
+|H| & \text { if } & h=g, \\
+0 & \text { if } & h \neq g .
+\end{array}\right.
+$$
+
+Then the orthogonality relations for characters of $\mathrm{H}$ imply that
+
+$$
+\tau=\sum_{x} \bar{x}(g) x
+$$
+
+Let $\tau^{*}$ denote the class function on $G$ induced by $\tau$, which by direct calculation equals
+
+$$
+\tau^{*}(y)=\left\{\begin{array}{cc}
+\left|C_{G}(g)\right| & y \in C, \\
+0 & y \notin C,
+\end{array}\right.
+$$
+
+where $C_{G}(g)$ is the centralizer of $g$ in $G$. Now $\left|C_{G}(g)\right||C|=|G|$ so that $\tau^{*}=f_{C}[\operatorname{see}(3.4)]$. This implies
+
+$$
+\sum_{x} \bar{x}(g) x^{*}=\sum_{\phi} \bar{\phi}(g) \phi,
+$$
+
+so that for $\operatorname{Re}(\mathrm{s})>1$ we have 
+
+$$
+F_{C}(s)=-\frac{|C|}{|G|} \sum_{X} \bar{X}(g) \frac{L^{\prime}}{L}\left(s, x^{*}, L / K\right) \cdot(4.2)
+$$
+
+But $\mathrm{L}\left(\mathrm{s}, \mathrm{X}^{*}, \mathrm{~L} / \mathrm{K}\right)=\mathrm{L}(\mathrm{s}, \mathrm{X}, \mathrm{L} / \mathrm{E})$, and so (4.1) holds for $\operatorname{Re}(\mathrm{s})>1$, and therefore (by analytic continuation) for all s.
+
+§5. Density of zeroes of Hecke L-functions We have now shown that for $x \geqslant 2$ and $T \geqslant 1$, say,
+
+$$
+\psi_{C}(x)=I_{C}(x, T)+R_{1}(x, T),
+$$
+
+where $R_{1}(x, T)$ satisfies $(3.18)$ and
+
+$$
+I_{C}(x, T)=-\frac{|C|}{|G|} \sum \bar{x}(g) \frac{1}{2 \pi i} \int_{\sigma_{0}-i T}^{\sigma_{0}^{+i T}} \frac{x^{S}}{s} \frac{L^{\prime}}{L}(s, x, L / E) d s \text {, }
+$$
+
+where $\sigma_{0}=1+(\log x)^{-1}$ and $x$ runs through the (onedimensional) irreducible characters of $H=\langle g\rangle$. Our next goal will be to evaluate each of the integrals in (5.1). [This turns out to be more convenient than integrating $F_{C}(s)$.] To accomplish this we will need some upper bounds on the number of singularities of $\mathrm{L}^{\prime} / \mathrm{L}$.
+
+Since I and $E$ are going to be fixed from now on, we will use $L(s, x)$ to denote $L(s, x, L / E)$. Also, we let $F(x)$ denote the conductor of $x$ and set
+
+$$
+A(\chi)=\alpha_{E} N E / Q(F(\chi))
+$$
+
+and
+
+$$
+\delta(x)= \begin{cases}1 & \text { if } \quad x=x_{1}, \\ \\ 0 & \text { otherwise. } \\ (5.3)\end{cases}
+$$
+
+We recall that for each $x$ there exist non-negative integers
+
+$a=a(x), \quad b=b(x)$ such that
+
+$$
+a(x)+b(x)=n_{E}
+$$
+
+and such that if we define
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-24.jpg?height=160&width=775&top_left_y=1134&top_left_x=305)
+
+and
+
+$$
+\begin{gathered}
+\xi(s, x)=[s(s-1)]^{\delta(\chi)} A(x)^{s / 2} \gamma(s) L(s, x) \\
+\text { then } \xi(s, x) \text { satisfies the functional equation } \\
+\xi(I-s, \bar{x})=W(\chi) \xi(s, x)
+\end{gathered}
+$$
+
+where $W(X)$ is a certain constant of absolute value 1 . Furthermore, $\xi(s, x)$ is an entire function of order 1 and does not vanish at $s=0$, and hence by the Hadamard product theorem we have
+
+$$
+\xi(s, x)=e^{B_{1}(x)+B(x) s} \quad \text { II }\left(1-\frac{s}{\rho}\right) e^{s / \rho}
+$$
+
+for some constants $B_{1}(x)$ and $B(x)$, where $\rho$ runs through
+
+all the zeroes of $\xi(s, x)$, which are precisely those zeroes
+
+$\rho=\beta+$ ir of $L(s, x)$ for which $0<\beta<1 \quad$ [the so-called
+
+"nontrivial zeroes" of $L(s, x)]$. [We recall that $L(s, x)$
+
+and hence $\xi(s, x)$ have no zeroes $\rho$ with $\operatorname{Re}(\rho) \geqslant 1$.$] From$
+
+now on $\rho$ wi.ll denote nontrivial zeroes of $L(s, x)$.
+
+Since we are interested in the integrals in (5.1),
+
+which involve $\mathrm{L}^{\prime} / \mathrm{L}$, we differentiate $(5.6)$ and (5.8)
+
+logarithmica.lly to obtain the important identity
+
+$$
+\frac{L^{\prime}}{L}(s, x)=B(x)+\sum_{\rho}\left(\frac{1}{s-\rho}+\frac{1}{\rho}\right)-\frac{1}{2} \log A(x)
+$$
+
+$$
+-\delta(x)\left[\frac{1}{s}+\frac{1}{s-1}\right]-\frac{\gamma^{\prime}}{\gamma_{x}}(s)
+$$
+
+valid identically in the complex variable s. A
+
+difficulty in the use of this formula is caused by the
+
+presence of the constant $B(\chi)$, which depends in an as-yetundetermined way on $x$. However, since $(s-1)^{\delta(x)} L(s, x)$ is entire, the functional equation $(5.7)$ easily implies the following result, which is proved in [Il].
+
+Lemma 5.1. With notation as above,
+
+$$
+\operatorname{Re} B(x)=-\sum_{\rho} \operatorname{Re} \frac{1}{\rho}
+$$
+
+and
+
+$$
+\begin{aligned}
+\frac{L^{\prime}}{L}(s, x)+\frac{L^{\prime}}{L}(s, \bar{x})=& \sum_{\rho}\left(\frac{I}{s-\rho}+\frac{I}{s-\rho}\right)-\log A(x) \\
+&-2 \delta(x)\left(\frac{1}{s}+\frac{I}{s-1}\right)-2 \frac{\gamma^{\prime}}{\gamma}(s)
+\end{aligned}
+$$
+
+holds identically in the complex variable s, where $\rho$ runs through the nontrivial zeroes of $\mathrm{L}(\mathrm{s}, x)$.
+
+This lemma will enable us to obtain estimates both of $B(x)$ and of the density of zeroes of $L(s, x)$. We should mention, however, that an analog of the above lemma could be proved for general Artin L-functions, but it would contain sums over the possible poles of such L-functions, and these pole terms would prevent us from obtaining an estimate as good as the one below. The purpose of the preceding section's reduction to the case of abelian L-function was to avoid these difficulties.
+
+We first derive some easy auxiliary results. Lemma 5.2. If $\sigma=\operatorname{Re}(\mathrm{s})>1$, then
+
+$$
+\left|\frac{L^{-}}{L}(s, x)\right|<\frac{n_{E}}{\sigma-1} .
+$$
+
+Proof A comparison of the Dirichlet series shows that
+
+$$
+\left|\frac{L^{-}}{L}(s, x)\right| \leqslant-\frac{\zeta^{\prime} E}{\zeta_{E}}(\sigma),
+$$
+
+and the result follows from Lemma 3.2.
+
+Lemma 5.3. If $\sigma=\operatorname{Re}(\mathrm{s})>-1 / 2$ and $|\mathrm{s}| \geqslant 1 / 8$, then
+
+$$
+\left|\frac{\gamma_{X}^{\prime}}{\gamma_{X}}(s)\right|<n_{E} \log (|s|+2)
+$$
+
+Proof This lemma follows from the definition of $\gamma_{\chi}(\mathrm{s})$ and the fact that
+
+$$
+\frac{\Gamma^{\prime}}{\Gamma}(z)<\log (|z|+2)
+$$
+
+for $z$ satisfying $|z| \geq 1 / 16, \quad \operatorname{Re} z>-1 / 4[17 ; p .251]$
+
+(cf. Lemma 6.1).
+
+We now come to the main result of this section. We let $n_{\chi}(t)$ denote the number of zeroes $\rho=\beta+$ ir of $L(s, x)$ with $0<\beta<1, \quad|\gamma-t| \leqslant 1$.
+
+Lemma $5.4$. For all $t$ we have
+
+$$
+n_{\chi}(t)<\log A(x)+n_{E} \log (|t|+2) .
+$$
+
+Proof We evaluate $(5.11$ ) at $s=2+i t$. Lemmas $5.2$ and $5.3$ imply that
+
+$$
+\sum_{\rho} \operatorname{Re}\left(\frac{1}{s-\rho}+\frac{1}{s-\bar{\rho}}\right) \ll \log A(x)+n_{E} \log (|t|+2) .
+$$
+
+But $\operatorname{Re}(s-\rho)^{-1}>0$ and $\operatorname{Re}(s-\bar{\rho})^{-1}>0$ since $2=\operatorname{Re}(s)>\operatorname{Re}(\rho)$, so
+
+$$
+\sum_{\rho} \operatorname{Re}\left(\frac{1}{s-\rho}+\frac{1}{s-\bar{\rho}}\right) \geqslant \sum_{\substack{\rho-t|\leqslant 1\\| \gamma-\beta}} \frac{2-\beta}{(2-\beta)^{2}+(t-\gamma)^{2}}
+$$
+
+$$
+\geqslant \sum_{\substack{\rho \\|\gamma-t| \leqslant 1}} \frac{1}{5}=\frac{1}{5} n_{\chi}(t),
+$$
+
+since $I<2-\beta<2$, which proves the lemma.
+
+The bound (5.12) (which is essentially best possible)
+
+will be crucial in many of our subsequent arguments. In the case of general Artin L-functions, we could obtain an 
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-29.jpg?height=507&width=1068&top_left_y=193&top_left_x=62)
+
+$$
+\begin{gathered}
+B(x)+\sum_{|\rho|<\varepsilon}^{\rho} \frac{1}{\rho}<\varepsilon^{-1}\left(\log A(x)+n_{E}\right) \\
+\mid \rho(x)
+\end{gathered}
+$$
+
+Proof Set $s=2$ in $(5.9)$ and use lemmas $5.2$ and $5.3$ to estimate the $L(s, x)$ and $\gamma_{\chi}$ terms, respectively. We obtain
+
+Now
+
+$$
+B(x)+\sum_{\rho}\left(\frac{1}{2-\rho}+\frac{1}{\rho}\right)<\log A(x)+n_{E}
+$$
+
+$$
+\left|\frac{1}{2-\rho}+\frac{1}{\rho}\right|=\frac{2}{|\rho(2-\rho)|} \leqslant \frac{2}{|\rho|^{2}}
+$$
+
+and so Lemma $5.4$ implies
+
+$$
+\sum_{|\rho| \geqslant 1}^{\rho}\left|\frac{1}{2-\rho}+\frac{1}{\rho}\right|<\sum_{j=1}^{\infty} \frac{n(j)}{j^{2}}<\log A(x)+n_{E} \text {. }
+$$
+
+Also, $|2-0| \geqslant 1$, so
+
+$$
+|\rho|<1\left|\frac{1}{2-\rho}\right|<\log A(x)+n_{E},
+$$
+
+and hence
+
+$$
+B(x)+\sum_{\substack{\rho|<\varepsilon\\| \rho \mid<\varepsilon}} \frac{1}{\rho}<\sum_{\varepsilon \leqslant|\rho|<1}^{\rho} \frac{1}{|\rho|}+\log A(x)+n_{E},
+$$
+
+which together with Lemma $5.4$ completes the proof.
+
+Lemma 5.6. If $s=\sigma+$ it with $-1 / 2 \leqslant \sigma \leqslant 3,|s| \geqslant 1 / 8$, then
+
+$$
+\begin{aligned}
+\left|\frac{L^{-}}{L}(s, x)+\frac{\delta(x)}{s-1}-\sum_{\substack{\rho \\
+|\gamma-t| \leqslant 1}} \frac{1}{s-\rho}\right| & \ll \log A(x) \\
+&+n_{E} \log (|t|+2)
+\end{aligned}
+$$
+
+Proof We evaluate $(5.9)$ at $\sigma+i t$ and $3+i t$ and subtract the resulting relations [in order to eliminate $B(x)$ ] to obtain
+
+$\frac{L^{\prime}}{L}(s, x)-\frac{L^{\prime}}{L}(3+i t, x)=\sum_{\rho}\left(\frac{1}{s-\rho}-\frac{1}{3+i t-\rho}\right)-\frac{\gamma_{\chi}^{\prime}}{\gamma_{\chi}}(s)$
+
+$+\frac{\gamma_{\chi}^{\prime}}{\gamma_{\chi}}(3+i t)-\delta(x)\left(\frac{1}{s}+\frac{1}{s-1}-\frac{1}{2+i t}-\frac{1}{3+i t}\right)$ We now use Lemmas $5.2$ and $5.3$ to estimate the $L(3+i t, x)$ and the gamma factors, respectively. We discover that
+
+$$
+\left|\frac{L}{L}(s, x)+\frac{\delta(x)}{s-1}-\sum_{\substack{\rho-t \\ \gamma-t}} \frac{1}{s-\rho}\right|
+$$
+
+$$
+\begin{aligned}
+& <n_{E} \log (|t|+2)+\sum_{\rho}\left|\frac{1}{s-\rho}-\frac{1}{3+i t-\rho}\right| \\
+& |\gamma-t|>1 \\
+& +\sum_{\rho}\left|\frac{1}{3+i t-\rho}\right| \text {. } \\
+& |\gamma-t| \leqslant 1
+\end{aligned}
+$$
+
+Since $|3+i t-\rho|>1$ for all $\rho$ and there are $n{ }_{\chi}(t)$ terms in the last sum, it is $\ll \log A(x)+n_{E} \log (|t|+2)$. For the first sum on the right side of $(5.14)$ we have
+
+$$
+\begin{aligned}
+& \sum_{\substack{\rho-t \mid>I}}\left|\frac{1}{s-\rho}-\frac{1}{3+i t-\rho}\right|=\sum_{|\gamma-t|>1} \frac{3-\sigma}{|s-\rho||3+i t-\rho|} \\
+& \ll \sum_{j=1}^{\infty} \frac{n x(t+j)+n_{x}(t-j)}{j^{2}} \\
+& \ll \log A(x)+n_{E} \log (|t|+2)
+\end{aligned}
+$$
+
+and this proves the Iemma. 
+
+\section{§6. The contour integra.l}
+
+The next step in the proof is to evaluate $I_{C}(x, T)$ by evaluating
+
+$$
+I_{x}(x, T)=\frac{1}{2 \pi i} \int_{\sigma}^{\sigma} 0_{0}^{+i T} \frac{x^{s}}{s} \frac{L^{\prime}}{L}(s, x) d s
+$$
+
+for each character $x$ of $H=\langle g\rangle$. So far the only condition on $T$ was $T \geqslant 1$. We now impose the additional requirement that T should not coincide with the ordinate of a zero of any of the $L(s, x)$. We also introduce a new parameter, $U$, which will satisfy $U=j+1 / 2$ for some non-negative integer $j$ (eventually we will let $U \rightarrow \infty$ ) and define
+
+$$
+I_{X}(x, T, U)=\frac{I}{2 \pi i} \int_{B_{T, U}} \frac{x^{s}}{s} \frac{L^{\prime}}{L}(s, x) d s
+$$
+
+where $B_{T}, U$ is the positively oriented rectangle with vertices at $\sigma_{0}-i T, \sigma_{0}+i T,-U+i T$, and $-U-i T$. Now $I_{x}(x, T, U)$ can easily be evaluated exactly in terms of the singularities of the integrand as we will show in the next section. In this section we will show that
+
+$$
+R_{X}(x, T, U)=I_{X}(x, T, U)-I_{X}(x, T)
+$$
+
+is small.
+
+The remainder $R_{\chi}(x, T, U)$ may be divided into the vertical integral
+
+$$
+V_{X}(x, T, U)=\frac{I}{2 \pi} \int_{T}^{-T} \frac{x-U+i t}{-U+i t} \frac{L^{-}}{L}(-U+i t, x) d t
+$$
+
+and the two horizontal integrals
+
+$$
+\begin{aligned}
+H_{\chi}(x, T, U)=& \frac{1}{2 \pi i} \int_{-U}^{-I / 4}\left\{\frac{x^{\sigma-i T}}{\sigma-i T} \frac{L^{\prime}}{L}(\sigma-i T, x)\right.\\
+&\left.-\frac{x^{\sigma+i T}}{\sigma+i T} \frac{L^{-}}{L}(\sigma+i T, x)\right\} d \sigma
+\end{aligned}
+$$
+
+$$
+\mathrm{H}_{\chi}^{*}(x, T)=\frac{1}{2 \pi i} \int_{-1 / 4}^{\sigma}\left\{\frac{x^{\sigma-i T}}{\sigma-i T} \frac{L^{\prime}}{L}(\sigma-i T, x)\right.
+$$
+
+$$
+\left.-\frac{x^{\sigma+i T}}{\sigma+i T} \frac{L^{\prime}}{L}(\sigma+i T, x)\right\} d \sigma
+$$
+
+$\mathrm{V}_{X}$ and $\mathrm{H}_{X}$ will be estimated by using Lemma $6.2$ to bound L'/L. First, however, we prove an auxiliary result about the digamma function.
+
+Lemma 6.1. If $|z+k| \geqslant 1 / 8$ for all non-negative integers $k$, then
+
+$$
+\frac{\Gamma^{\prime}}{\Gamma}(z) \ll \log (|z|+2)
+$$
+
+Proof If Re $z \geqslant 1$, this is well-known [17, p.251]. If Re $\mathrm{s}<1$, then the recurrence relation 
+
+$$
+\frac{\Gamma^{\prime}}{\Gamma}(u)=\frac{\Gamma^{\prime}}{\Gamma}(u+1)-\frac{1}{u}
+$$
+
+iterated m times shows that
+
+$$
+\frac{\Gamma^{\prime}}{\Gamma}(z)=\frac{\Gamma^{\prime}}{\Gamma}(z+m)-\sum_{k=0}^{m-1} \frac{I}{z+k}
+$$
+
+for any positive integer $m$. Choose $m=[|z|+2]$. Then
+
+$\operatorname{Re}(z+m)>1$, so that
+
+$$
+\frac{\Gamma^{\prime}}{\Gamma}(z+m) \ll \log (|z|+2),
+$$
+
+while $|z+k| \geqslant 1 / 8$ for all non-negative integers $k$ implies
+
+$$
+\sum_{k=0}^{m-1} \frac{1}{z+k} \ll \sum_{k=0}^{m-1} \frac{1}{k+1 / 8} \ll \log (|z|+2),
+$$
+
+which proves the lerma.
+
+Lemma 6.2. If $s=\sigma+$ it with $\sigma \leqslant-1 / 4$, and $|\mathrm{s}+\mathrm{m}| \geqslant 1 / 4$ for all non-negative integers $m$, then
+
+$$
+\frac{L^{\prime}}{L}(s, x) \ll \log A(x)+n_{E} \log (|s|+2) .
+$$
+
+Proof The functional equation (5.7) and the definitions $(5.5)$ and $(5.6)$ imply that
+
+$$
+\frac{L^{\prime}}{L}(s, x)=-\frac{L^{\prime}}{L}(1-s, \bar{x})-\log A(x)-\frac{\gamma_{X}^{\prime}}{\gamma_{X}}(1-s)-\frac{\gamma_{X}^{\prime}}{\gamma_{X}}(s) .
+$$
+
+Since $\operatorname{Re}(I-s) \geqslant 5 / 4$, we can use Lemma $5.2$ to bound $\left(L^{\prime} / \mathrm{L}\right)(1-\mathrm{S}, \bar{X})$. The lemma then follows by an application of Lemma 6.1 to estimate the $\gamma_{x}$ terms.
+
+Estimates for $V_{\chi}(x, T, U)$ and $H_{\chi}(x, T, U)$ are now very easy to obtain. By the above lemma we have the crude estimates $(U=j+1 / 2$ so that $|-U+i t+m| \geqslant 1 / 4$ for all integers m)
+
+$$
+V_{X}(x, T, U) \leqslant \frac{x^{-U}}{U} \int_{-T}^{T}\left|\frac{L^{\prime}}{L}(-U+i t, x)\right| d t
+$$
+
+$$
+\Leftrightarrow \frac{x^{-U}}{U} T\left\{\log A(x)+n_{E} \log (T+U)\right\}
+$$
+
+and
+
+$$
+\begin{aligned}
+H_{X}(x, T, U) &<\int_{-\infty}^{-1 / 4} \frac{x^{\sigma}}{T}\left(\log A(x)+n_{E} \log (|\sigma|+2)+n_{E} \log T\right) d \sigma \\
+&<\frac{x^{-1 / 4}}{T}\left\{\log A(x)+n_{E} \log T\right\}
+\end{aligned}
+$$
+
+Better estimates can easily be obtained, but would not be too significant, since other error terms will be much larger.
+
+It remains to estimate $\mathrm{H}_{\chi}^{*}(\mathrm{x}, \mathrm{T})$. Lemma $5.6$ shows that
+
+$$
+\begin{aligned}
+& \frac{L^{\prime}}{L}(\sigma+i T, x)-\sum_{0} \frac{1}{\sigma+i T-\rho} \leqslant \log A(x)+n_{E} \log T \\
+& |\gamma-T| \leqslant I 
+\end{aligned}
+$$
+
+if $-1 / 4 \leqslant \sigma \leqslant \sigma_{0}=1+(\log x)^{-1}, x \geqslant 2, \quad T \geqslant 2$, and a similar estimate holds for $L^{\prime} / \mathrm{L}$ at $\sigma$-iT. Therefore, $H_{\chi}^{*}(x, t)-\frac{1}{2 \pi i} \int_{-1 / 4}^{\sigma}\left\{\frac{x^{\sigma-i T}}{\sigma-i T} \sum_{\substack{\rho \\|\gamma+T| \leqslant 1}} \frac{1}{\sigma-i T-\rho}\right.$ $\left.-\frac{x^{\sigma+i T}}{\sigma+i T} \sum_{\substack{\rho \\|\gamma-T| \leqslant 1}} \frac{1}{\sigma+i T-\rho}\right\} d \sigma$ $\ll \int_{-1 / 4}^{\sigma} \frac{x^{\sigma}}{T}\left\{\log A(x)+n_{E} \log T\right\} d \sigma$ $\ll \frac{x}{T \log x} \cdot\left\{\log A(x)+n_{E} \log T\right\}$
+
+To complete our estimate we show that the first integral in (6.10) is not too large.
+
+Lemma 6.3. Let $\rho=\beta+$ i $\gamma$ have $0<\beta<1, \quad \gamma \neq t$. If $|t| \geqslant 2, \quad x \geqslant 2$, and $l<\sigma_{1} \leqslant 3$, then
+
+$$
+\int_{-1 / 4}^{\sigma} \frac{x^{\sigma+i t}}{(\sigma+i t)(\sigma+i t-\rho)} d \sigma \ll|t|^{-1} x_{1}^{\sigma_{1}}\left(\sigma_{1}-\beta\right)^{-1} \text {. }
+$$
+
+Proof Suppose first that. $\gamma>t$. Let $B$ be the rectangle with vertices at $\sigma_{1}+i(t-1), \sigma_{1}+i t,-\frac{1}{4}+i t$, $-\frac{1}{4}+i(t-1)$, oriented counterclockwise. By Cauchy's theorem,
+
+$$
+\int_{B} \frac{x^{s}}{s(s-\rho)} d s=0
+$$
+
+since the integrand has no singularities inside the contour. However, on the three sides of the rectangle other than the segment from $-1 / 4+$ it to $\sigma_{1}+i t$, the integrand is majorized by
+
+$$
+\frac{x^{\sigma_{1}}}{(|t|-1)\left(\sigma_{1}-\beta\right)}
+$$
+
+which proves the result for $\gamma>$ t. A similar proof for $\gamma<t$ uses the rectangle with vertices at $\sigma_{0}+i(t+l)$, $\sigma+i t,-1 / 4+i t,-1 / 4+i(t+1)$
+
+The above lemma shows that
+
+$$
+\begin{aligned}
+& \left.\frac{1}{2 \pi i} \int_{-1 / 4}^{0} \frac{x^{\sigma-i T}}{\sigma-i T}\left(\sum_{\substack{\rho \\ \gamma+T \mid \leqslant 1}} \frac{1}{\sigma+i T-\rho}\right) d \sigma<\frac{x^{0}}{T}\left(\sigma_{0}^{-1}\right)^{-1} n^{(-T}\right) \\
+& <\frac{x \log x}{T}\left(\log A(x)+n_{E} \log T\right)
+\end{aligned}
+$$
+
+for $x \geqslant 2, T \geqslant 2$, and the same estimate holds for the integra] involving zeroes $\rho$ with $|\gamma-T| \leqslant 1$. [Note that if we assume the GRH for $L(s, x)$, then we can delete the log $x$ term in (6.11). Also, even without the GRH we could replace $\log x$ by $\log \log x$ by improving Lemma 6.3.] Therefore we finally obtain
+
+$$
+\mathrm{H}_{\chi}^{*}(\mathrm{x}, \mathrm{T}) \ll \frac{\mathrm{x} \log x}{\mathrm{~T}}\left(\log \mathrm{A}(\mathrm{x})+\mathrm{n}_{\mathrm{E}} \log \mathrm{T}\right) .
+$$
+
+If we now combine $(6.8),(6.9)$, and $(6.12)$, we obtain the main result of this section, namely that
+
+$$
+\begin{aligned}
+I_{X}(x, T)-I_{X}(x, T, U) &=-V_{X}(x, T, U)-H_{\chi}(x, T, U)-H_{\chi}^{*}(x, T) \\
+\ll & \frac{x \log x}{T}\left\{\log A(x)+n_{E} \log T\right\} \\
+&+\frac{T x}{U}\left\{\log A(x)+n_{E} \log (T+U)\right\} .
+\end{aligned}
+$$
+
+\section{§7. The explicit formula}
+
+In this section we combine the results of preceding sections in order to obtain an explicit formula for $\psi_{C}(x)$ in terms of the zeroes $\rho$. We first evaluate the integral $I_{\chi}(x, T, U)$, which was defined by $(6.2)$. We recall that $x \geqslant 2, U=j+1 / 2$ for some non-negative integer $j$, and $T \geqslant 2$ does not equal the ordinate of any zero of any of the $L(s, x)$. By Cauchy's theorem $I_{\chi}(x, T, U)$ equals the sum of the residues of the integrand at poles inside $B_{T}, U^{\circ}$ Now if $x=x_{1}$, the principal character, then $\mathrm{L}^{\circ} / \mathrm{L}$ has a first order pole of residue $-1$ at $s=1$, and hence (this term being absent if $x \neq x_{1}$ ) we obtain a contribution of
+
+$$
+-\delta(x) x
+$$
+
+from the possible pole at $s=1$. Further, $L^{\prime} / \mathrm{L}$ has a first order pole with residue $+I$ at each nontrivial zero $\rho$ of $L(s, x)$ (the $\rho^{\prime} s$ are counted according to their multiplicity), and so such $\rho^{\prime}$ s contribute
+
+$$
+\sum_{\infty} \frac{x^{\rho}}{\rho}
+$$
+
+In addition, $\mathrm{L}^{\prime} / \mathrm{L}$ has first order poles at the so-called trivial zeroes, which are real and nonpositive. In fact, $(6.7)$ shows that $L^{\prime} / \mathrm{L}$ has first order poles at $s=-(2 m-1)$, $m=1,2, \ldots$, where the residue is $b(x)$, and first order poles at $s=-2 m, m=0,1,2, \ldots$, where the residue is $\mathrm{a}(x)$. Hence the residues at points $s$ with $\operatorname{Re}(\mathrm{s})<0$ contribute
+
+$$
+-b(x) \sum_{m=1}^{\left[\frac{U+1}{2}\right]} \frac{x^{-(2 m-1)}}{2 m-1}-a(x) \sum_{m=1}^{[U / 2]} \frac{x^{-2 m}}{2 m}
+$$
+
+The only remaining residue is that at $s=0$, where we have the complication that both $\mathrm{x}^{\mathrm{S}} / \mathrm{s}$ and $\mathrm{L}^{\prime} / \mathrm{L}$ may have first order poles. The Laurent series expansions show that there exist functions $h_{1}(s)$ and $h_{2}(s)$ which are analytic at $s=0$ $\left[h_{2}(s)\right.$ depends on $\left.x\right]$, such that
+
+$$
+\frac{x^{s}}{s}=\frac{1}{s}+\log x+\operatorname{sh}_{1}(s)
+$$
+
+and [using (5.9)]
+
+$$
+\frac{L^{-}}{L}(s, x)=\frac{a(x)-\delta(x)}{s}+r(x)+\operatorname{sh}_{2}(s)
+$$
+
+where
+
+$$
+\begin{aligned}
+r(x)=B(x)-\frac{1}{2} \log A(x)+&+\frac{n^{E}}{2} \log \pi+\delta(x) \\
+&-\frac{b(x)}{2} \frac{\Gamma^{\prime}}{\Gamma}\left(\frac{1}{2}\right)-\frac{a(x)}{2} \frac{\Gamma^{\prime}}{\Gamma}(1) .
+\end{aligned}
+$$
+
+Hence the residue at $s=0$ is
+
+$$
+r(x)+(a(x)-\delta(x)) \log x
+$$
+
+If we now collect all these residue terms, we find that
+
+$$
+\begin{aligned}
+I_{x}(x, T, U)=&-\delta(x) x+\sum_{\substack{\rho}} \frac{x^{\rho}}{\rho}-b(x) \sum_{m=1}^{\left[\frac{U+I}{2}\right]} \frac{x^{1-2 m}}{2 m-1} \\
+&-a(x) \sum_{m=1}^{\left[\frac{U}{2}\right]} \frac{x^{-2 m}}{2 m}+r(x)+(a(x)-\delta(x)) \log x .
+\end{aligned}
+$$
+
+We now let $U \rightarrow \infty$. Then $(7.2)$ and $(6.13)$ give us the explicit formula
+
+$I_{x}(x, T)+\delta(x) x-\sum_{|\gamma|<T}^{\rho} \frac{x^{\rho}}{\rho}-r(x)-(a(x)-\delta(x)) \log x$ $-\frac{n^{E}}{2} \log \left(1-x^{-1}\right)+\frac{1}{2}(b(x)-a(x)) \log \left(1+x^{-1}\right)$
+
+$k \frac{x \log x}{T} \quad\left\{\log A(x)+n_{E} \log T\right\}$
+
+valid for all $x \geqslant 2$ and all $T \geqslant 2$ which do not coincide with the ordinate of a zero. If we now let $T \rightarrow \infty,(7.3)$ would give us an explicit formula for the inverse Mellin transform
+
+$$
+\frac{1}{2 \pi i} \quad \int_{\sigma_{0}-i \infty}^{0^{+i}} \frac{x^{s}}{s} \frac{L^{\prime}}{L}(s, x) d s
+$$
+
+with no error term. However, for our purposes a cruder version of $(7.3)$ will be more useful.
+
+Theorem $7.1$. If $x \geqslant 2$ and $T \geqslant 2$, then 
+
+$$
+\begin{aligned}
+&\psi_{C}(x)-\frac{|C|}{|G|} x+S(x, T) \\
+&\ll \frac{|C|}{|G|}\left\{\frac{x \log x+T}{T} \log d_{L}+n_{L} \log x+\frac{n_{L} x \log x \log T}{T}\right\} \\
+&+\log x \log d_{L}+n_{K}{ }^{x T^{-1}}(\log x)^{2},
+\end{aligned}
+$$
+
+where
+
+$$
+S(x, T)=\frac{|C|}{|G|} \sum_{x}^{\bar{x}(g)}\left\{\begin{array}{c}
+\sum_{\rho}^{\rho} \frac{x^{\rho}}{\rho}-\sum_{\rho}^{\rho} \frac{1}{\rho} \\
+|\gamma|<T
+\end{array}\right\} \cdot(7.5)
+$$
+
+[The inner sums in (7.5) are over the nontrivial zeroes $\rho$ of $\mathrm{L}(\mathrm{s}, \mathrm{x})$.
+
+Proof Lemma $5.5$ and $(5.4)$ show that
+
+and so
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-42.jpg?height=160&width=685&top_left_y=1267&top_left_x=382)
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-42.jpg?height=174&width=763&top_left_y=1464&top_left_x=217)
+
+$\ll \log A(x)+n_{E} \log x+\frac{x \log x}{T}\left\{\log A(x)+n_{E} \log T\right\}$.
+
+Hence by (5.1) and (6.1) we have for $x \geqslant 2, T \geqslant 2$ [T not coinciding with the ordinate of any zero $\rho$ of any $L(s, x)]$
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-43.jpg?height=185&width=1001&top_left_y=308&top_left_x=143)
+
+$\ll \frac{|C|}{|G|} \sum_{x}^{\left\{\frac{x \log x+T}{T} \log A(x)+n_{E} \log x+\frac{n_{E} x \log x \log T}{T}\right\}}$
+
+$\Leftrightarrow \frac{|\mathrm{C}|}{|G|}\left\{\frac{\mathrm{x} \log x+T}{T} \log d_{L}+n_{L} \log x+\frac{n_{L} x \log x \log T}{T}\right\}$
+
+since
+
+$$
+\sum_{x} \log A(x)=\log d_{L}
+$$
+
+by the conductor-discriminant formula, and $\mathrm{n}_{\mathrm{E}} \cdot[\mathrm{L}: \mathrm{E}]=\mathrm{n}_{\mathrm{L}} \cdot$
+
+Since $\psi_{C}(x)=I_{C}(x, T)+R_{1}(x, T)$, where $R_{1}(x, T)$ satisifes
+
+(3.18), we obtain the bound of the theorem, provided T
+
+does not equal the ordinate $\gamma$ of some zero $\rho=\beta+$ ir. If, however, $T=\gamma$ for some $\rho$, then we evaluate (7.4) with
+
+$T$ replaced by $T+\varepsilon$ for a very small $\varepsilon$, and let $\varepsilon \rightarrow 0$.
+
+The possible discontinuity in the function on the left side comes from zeroes $\rho$ with $T=\gamma$, and since there are
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-43.jpg?height=77&width=1044&top_left_y=1643&top_left_x=96)
+in the error term by increasing the constant implied by the $<$ notation. 
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-44.jpg?height=1607&width=1117&top_left_y=205&top_left_x=211)
+
+and the $L(s, x)$ are all analytic for $s \neq 1$, any zero-free region for $\zeta_{L}(s)$ immediately implies one for each of the $L(s, x)$. This approach does have the serious disadvantage that one can often obtain larger zero-free regions by working directly with the $\mathrm{L}(\mathrm{s}, x)$ (cf. $[2 ; \quad$ ch. 14$])$; in fact, one can essentially replace $\log d_{L}$ by $\max (\log A(x))$ and $n_{L}$ by $n_{E}$ in the estimates below. The problem with that result is that in general $\mathrm{n}_{\mathrm{E}}$ can be almost as large as $\mathrm{n}_{\mathrm{L}}$ and $\max (\log \mathrm{A}(x))$ almost as large as $\mathrm{d}_{\mathrm{L}}$. Finally, we should mention that for a fixed I a better zero-free region can be obtained by more sophisticated methods [12], but the published versions are not explicit as to the dependence on the field I.
+
+Lemma 8.1. There is an absolute, effectively computable positive constant $c_{8}$ such that $\zeta_{L}(s)$ has no zeroes $\rho=\beta+i \gamma$ in the region
+
+$$
+\begin{aligned}
+&|\gamma| \geqslant\left(1+4 \log \alpha_{L}\right)^{-1} \\
+&\beta \geqslant 1-c_{8}\left(\log \alpha_{L}+n_{L} \log (|\gamma|+2)\right)^{-1} .
+\end{aligned}
+$$
+
+Proof We have
+
+$$
+-\frac{{ }^{\prime} L}{\zeta_{L}^{\prime}}(s)=\sum_{m=1}^{\infty} \alpha(m) m^{-s}
+$$
+
+for $\sigma=\operatorname{Re}(\mathrm{s})>1$, where $\alpha(\mathrm{m}) \geqslant 0$ for all $\mathrm{m}$. Hence
+
+$$
+\begin{aligned}
+& \operatorname{Re}\left(-3 \frac{{ }^{\prime} L}{\zeta_{L}^{\prime}}(\sigma)-4 \frac{\zeta^{\prime}}{\zeta^{\prime}}(\sigma+i t)-\frac{{ }^{\prime} L}{\zeta_{L}^{\prime}}(\sigma+2 i t)\right) \\
+=& \sum_{m=1}^{\infty} \alpha(m) m^{-\sigma}(3+4 \cos (t \log m)+\cos (2 t \log m)) \geqslant 0
+\end{aligned}
+$$
+
+by the classical identity
+
+$$
+3+4 \cos \theta+\cos 2 \theta=2(1+\cos \theta)^{2} \geqslant 0 \text {. }
+$$
+
+If we now consider the trivial normal extension $L$ of $L$, then $\zeta_{L}$ (s) is the Artin L-function associated to the principal character, and if $\gamma_{L}(s)$ denotes the associated gamma factor then (5.11) shows that
+
+$$
+2 \frac{\zeta_{L}^{\prime}}{\zeta_{L}}(s)=\sum_{\rho}\left(\frac{1}{s-\rho}+\frac{1}{s-\bar{\rho}}\right)-\log \alpha_{L}-\frac{2}{s}-\frac{2}{s-I}-2 \frac{\gamma_{L}^{\prime}}{\gamma_{I}}(s) \text {, }
+$$
+
+where the summation is over the nontrivial zeroes $\rho$ of $\zeta_{L}(s)$. We note here that if $\operatorname{Re} s>1$, then $\operatorname{Re}(s-\rho)^{-1}>0$ for each zero $\rho$. If $\rho=\beta+i \gamma$ is some particular zero with $|\gamma| \geqslant\left(1+4 \log \alpha_{L}\right)^{-1}$, then we find that for $\sigma>l$, $-\frac{\zeta_{L}^{\prime}}{\zeta_{L}}(\sigma) \leqslant \frac{1}{\sigma-I}+\frac{1}{\sigma}+\frac{1}{2} \log \alpha_{L}+\frac{\gamma_{L}^{\prime}}{\gamma_{L}}(\sigma)-\sum_{\rho} \operatorname{Re}(\sigma-\rho)^{-1}$
+
+$$
+\leqslant \frac{1}{\sigma-1}+c_{9} \log \alpha_{L}+c_{9} n_{L},
+$$
+
+$-\operatorname{Re} \frac{\zeta_{L}^{\prime}}{\zeta_{L}}(\sigma+2 i \gamma) \leqslant \frac{1}{2} \log \alpha_{L}+\operatorname{Re}\left\{\frac{1}{\sigma+2 i \gamma-1}+\frac{1}{\sigma+2 i \gamma}\right\}$
+
+$$
++\operatorname{Re} \frac{\gamma_{L}^{\prime}}{\gamma_{L}}(\sigma+2 i \gamma)
+$$
+
+$\leqslant c_{10} \log \alpha_{L}+c_{10} n_{L} \log (|\gamma|+2)$ and
+
+$-\operatorname{Re} \frac{\zeta_{L}^{\prime}}{\zeta_{L}}(\sigma+i \gamma) \leqslant c_{11} \log \alpha_{L}+c_{11}{ }_{L} \log (|\gamma|+2)-\frac{1}{\sigma-\beta}$,
+
+where in the last inequality we have included the contribution of the zero $\rho=\beta+$ i $\gamma$. These inequalities and (8.2) show that for all $\sigma>1$,
+
+$$
+\frac{4}{\sigma-\beta}<\frac{3}{\sigma-1}+c_{12}\left\{\log \alpha_{L}+n_{L} \log (|\gamma|+2)\right\}
+$$
+
+If we now set $\sigma=1+\left(100 c_{12}\right)^{-1}\left\{\log \alpha_{L}+n_{L} \log (|\gamma|+2)\right\}^{-1}$, say, then we obtain the result of the lemma.
+
+In addition to Lemma $8.1$ we also need information about zeroes of $\zeta_{L}(s)$ very near the real axis. Such information can be obtained by methods similar to those used above.
+
+Lemma 8.2. If $n_{L}>1$ then $\zeta_{L}(\mathrm{~s})$ has at most one zero $\rho=\beta+i \gamma$ in the region
+
+$$
+\begin{aligned}
+|\gamma| & \leqslant\left(4 \log d_{L}\right)^{-1}, \\
+\beta & \geqslant 1-\left(4 \log \alpha_{L}\right)^{-1} .
+\end{aligned}
+$$
+
+This zero, if it exists, has to be real and simple.
+
+Proof Identity $(8.3)$ shows that for $l<\sigma \leqslant 2$, 
+
+$$
+\begin{aligned}
+& \sum_{\rho} \frac{\sigma-\beta}{(\sigma-\beta)^{2}+\gamma^{2}}=\frac{1}{\sigma-1}+\frac{1}{2} \log \alpha_{L}+\frac{\zeta_{L}^{\prime}}{\zeta}(\sigma)+\frac{1}{\sigma}+\frac{\gamma_{L}^{\prime}}{\gamma_{L}}(\sigma) \\
+& \leqslant \frac{1}{\sigma-1}+\frac{1}{2} \log \alpha_{L}
+\end{aligned}
+$$
+
+since $\zeta^{\prime} / \zeta \leqslant 0$ and it is easily verified that
+
+$$
+\begin{aligned}
+\frac{I}{\sigma}+\frac{\gamma_{L}^{\prime}}{\gamma_{L}}(\sigma)=\left(\frac{1}{\sigma}-\frac{n_{L}}{2} \log \pi\right) &+\frac{a(L)}{2} \frac{\Gamma^{\prime}}{\Gamma^{\prime}}\left(\frac{\sigma}{2}\right) \\
+&+\frac{b(L)}{2} \frac{\Gamma^{\prime}}{\Gamma^{\prime}}\left(\frac{\sigma+I}{2}\right)<0
+\end{aligned}
+$$
+
+for $1<\sigma \leqslant 1+(\log 3)^{-1}$. If $\rho=\beta+$ ir is in the region described by $(8.4)$ and $\gamma \neq 0$, then (8.5) gives
+
+$$
+2 \frac{\sigma-\beta}{(\sigma-\beta)^{2}+\gamma^{2}} \leqslant \frac{1}{\sigma-1}+\frac{1}{2} \log \alpha_{L},
+$$
+
+which is false at $\sigma=1+\left(\log \alpha_{L}\right)^{-1} \leqslant 1+(\log 3)^{-1}$. We similarly obtain a contradiction if there is more than one real zero in our region.
+
+If the possible zero described by the above lemma exists, we denote it by $\beta_{0}$ and call it the exceptional (Siegel) zero. We also note that if $n_{L}=1$ (so that $L=Q$, $\left.\log d_{L}=0\right)$, then $\zeta_{L}$ has no nontrivial zeroes $\rho$ with $|\gamma|<14$. If $\beta_{0}$ exists, then $(8.1)$ shows that there exists 
+a unique $x_{0}$ such that $L\left(\beta_{0}, x_{0}\right)=0$. This $x_{0}$ must then be
+a real character, as $\mathrm{L}\left(\beta_{0}, \bar{x}_{0}\right)=\overline{\mathrm{L}\left(\beta_{0}, x_{0}\right)}=0$.
+
+\section{§9. Final estimates}
+
+We conclude this paper by applying the explicit formula of Theorem $7.1$ to estimate $\psi_{C}(x)$ and $\pi_{C}(x)$. We start with the GRH estimate for $\psi_{C}(x)$, which is the easiest to obtain. Theorem 9.1 If $\zeta_{L}(\mathrm{~s})$ satisfies the GRH, then $\psi_{C}(x)-\frac{|C|}{|G|} x<\frac{|C|}{|G|} x^{\frac{1}{2}} \log x \log d_{L} x^{n^{L}}+\log x \log d_{L}$
+
+for all $x \geqslant 2$
+
+Proof If $\zeta_{L}(\mathrm{~s})$ satisfies the GRH, then so do all of the $L(s, X)$. Therefore, for each $x$ there are no nontrivial zeroes $\rho$ with $|\rho| \leqslant 1 / 2$, and so by Lemma $5.4$.
+
+$$
+\begin{aligned}
+& \left|\sum_{|\gamma|<T}^{\rho} \frac{x^{\rho}}{\rho}+\sum_{|\rho|<\frac{1}{2}}^{\rho} \frac{1}{\rho}\right| \leqslant x^{\frac{1}{2}} \sum_{|\gamma|<T}^{\rho} \frac{1}{|\rho|} \\
+& \ll x^{\frac{1}{2}} \sum_{j=1}^{[T]} \frac{n_{x}(j)}{j} \\
+& \ll x^{\frac{1}{2}}\left\{\log A(x)+n_{E} \log T\right\} \log T 
+\end{aligned}
+$$
+
+which together with (7.5) implies
+
+$$
+S(x, T) \ll \frac{|C|}{|G|} x^{\frac{1}{2}}\left\{\log \alpha_{L}+n_{L} \log T\right\} \log T
+$$
+
+for all $T \geqslant 2$. We now choose $T=x^{\frac{1}{2}}+1$, say, and then $(9.2)$ and $(7.4)$ imply (9.1) for $x \geqslant 2$.
+
+Theorem 9.2. There is an effectively computable positive absolute constant $c_{13}$ such that if
+
+$$
+x \geqslant \exp \left(4 n_{L}\left(\log \alpha_{L}\right)^{2}\right)
+$$
+
+then
+
+$$
+\psi_{C}(x)=\frac{|C|}{|G|} x-\frac{|c|}{|G|} x_{0}(g) \frac{x_{0}^{\beta_{0}}}{\beta_{0}}+R(x)
+$$
+
+where
+
+$$
+|R(x)| \leqslant x \exp \left(-c_{13} n^{-\frac{1}{2}}(\log x)^{\frac{1}{2}}\right)
+$$
+
+and where the second term on the right side of (9.4) occurs only if $\zeta_{L}(s)$ has an exceptional zero $\beta_{0}$, and $x_{0}$ is the (real) character of $\mathrm{H}=\mathrm{Gal}(\mathrm{L} / \mathrm{E})=\langle\mathrm{g}\rangle$ for which $L\left(s, x_{0}, L / E\right)$ has $\beta_{0}$ as a zero.
+
+Proof If $\rho=\beta+i \gamma \neq \beta_{0}$ is a nontrivial zero of one of the $L(s, x)$ with $|\gamma| \leqslant T$, then the unconditional bound of EFFECTIVE VERSIONS OF CHEBOTAREV
+
+459
+
+Lemma 8.I shows that
+
+$$
+\left|x^{\rho}\right|=x^{\beta} \leqslant x \exp \left(-c_{14} \frac{\log x}{\log \partial_{L} T^{n}}\right)
+$$
+
+for $x \geqslant 2, \quad T \geqslant 2$. Further, Lemma $5.4$ shows that
+
+$$
+\begin{aligned}
+& |\gamma| \leqslant T
+\end{aligned}
+$$
+
+Also,
+
+$$
+\begin{aligned}
+& \sum_{x \quad \rho \neq I-\beta} \sum_{0}\left\{\left|\frac{x^{\rho}}{\rho}\right|+\left|\frac{I}{\rho}\right|\right\} \ll x^{\frac{1}{2}} \sum_{\substack{x \neq I-\beta}} \sum_{0}\left|\frac{I}{\rho}\right| \ll x^{\frac{1}{2}}\left(\log \alpha_{L}\right)^{2}, \\
+& |\rho|<\frac{1}{2} \\
+& |\rho|<\frac{1}{2} \text {. }
+\end{aligned}
+$$
+
+by Lemma $5.4$ and the fact that for $\rho \neq 1-\beta_{0}$,
+
+$|\rho| \geqslant\left(4 \log \alpha_{L}\right)^{-1} \cdot\left(\operatorname{If} \log \alpha_{L}=0, \quad L=Q\right.$, and the estimate holds trivially). Finally,
+
+$$
+\frac{x^{1-\beta_{0}}}{I-\beta_{0}}-\frac{1}{1-\beta_{0}}=x^{\sigma} \log x \leqslant x^{\frac{1}{2}} \log x
+$$
+
+for some $\sigma, \quad 0 \leqslant \sigma \leqslant 1-\beta . \quad$ Collecting all these estimates gives us
+
+![](https://cdn.mathpix.com/cropped/2022_10_16_73244cab16ba968f2657g-51.jpg?height=151&width=644&top_left_y=574&top_left_x=190)
+
+
+
+$$
+\begin{aligned}
+&S(x, T)-\frac{|C|}{|G|} x_{0}(g) \frac{x^{\beta_{0}}}{\beta_{0}} \\
+&\ll \frac{|C|}{|G|} \times \log T \log \left(d_{L} T^{n^{L}}\right) \exp \left(-\frac{c_{14} \log x}{n_{L}}\right) \\
+&+\frac{|C|}{|G|} x^{\frac{1}{2}}\left(\log d_{L}\right)^{2} .
+\end{aligned}
+$$
+
+We now choose
+
+$$
+T=\exp \left(n_{L}^{-\frac{1}{2}}(\log x)^{\frac{1}{2}}-\log d_{L}\right) .
+$$
+
+The estimate of the theorem then follows from $(9.5)$ and $(7.4)$
+
+The deduction of Theorems $1.1$ and $1.3$ from the preceding theorems is now straightforward. We first define the function
+
+$$
+\begin{aligned}
+\theta_{C}(x)=& \sum_{P \text { unramified }} \log \left(\mathbb{N}_{K / Q} P\right) . \\
+\mathbb{N}_{K / Q} P \leqslant x \\
+{\left[\frac{L / K}{P}\right]=C }
+\end{aligned}
+$$
+
+Since there are at most $n_{K}$ ideals $P^{m}$ ( $P$ prime) of a given norm in $K$, 
+
+$$
+\begin{aligned}
+& \sum_{P, m} \log \left(N_{K / Q} P\right) \ll n_{K} x^{\frac{1}{2}} \\
+& m \geqslant 2 \\
+& N_{K / Q} P^{m} \leqslant x
+\end{aligned}
+$$
+
+by an elementary Chebyshev-type estimate. This shows that the estimates of Theorems $9.1$ and $9.2$ hold when $\psi_{C}(x)$ is replaced by $\theta_{C}(x)$. Theorems $1.1$ and $1.3$ now follow from these estimates for $\theta_{C}(x)$ by simple partial summation arguments.
+
+We conclude this paper by indicating one way in which the GRH estimate of Corollary $1.2$ can be slightly improved. Instead of integrating
+
+$$
+\frac{1}{2 \pi i} \frac{x^{s}}{s} \quad F_{C}(x),
+$$
+
+we can integrate
+
+$$
+\frac{1}{2 \pi i}\left(\frac{y^{s-1}-x^{s-1}}{s-1}\right)^{2} \quad F_{C}(x)
+$$
+
+where $y>x>I$, along the contour $B_{T}, U$ of section 6 . We then first let $U \rightarrow \infty$, and then $T \rightarrow \infty$. The integral from $\sigma_{0}-i \infty$ to $\sigma_{0}+i^{\infty}$ gives us the term we are interested in, i.e.,
+
+$$
+\begin{aligned}
+&\sum_{P} \frac{\log \mathbb{N} P}{N P} \quad r(\mathbb{N} P ; y, x), \\
+&{\left[\frac{L / K}{P}\right]=C}
+\end{aligned}
+$$
+
+where
+
+$$
+r(m ; y, x)=\left\{\begin{array}{cl}
+\log \frac{m}{x^{2}} & x^{2} \leqslant m \leqslant x y, \\
+\log \frac{y^{2}}{m} & x y \leqslant m \leqslant y^{2} \\
+0 & \text { otherwise, }
+\end{array}\right.
+$$
+
+together with the contribution of the ramified primes and prime powers. By Cauchy's theorem the value of the integral also equals the contribution of the poles of the integrand, which is
+
+$$
+\frac{|C|}{|G|}\left(\log \frac{\mathrm{y}}{\mathrm{x}}\right)^{2}-\frac{|\mathrm{C}|}{|\mathrm{G}|} \sum_{x} \bar{x}(g) \sum_{\rho}\left(\frac{\mathrm{y}^{\rho-1} \mathrm{x}^{\rho-1}}{\rho-1}\right)^{2}
+$$
+
+where $\rho$ now runs through both the trivial and the nontrivial zeroes of $L(s, x)$. If we now choose $x=\log \alpha_{L}, y=c_{14} x$, then for $c_{14}$ sufficiently large (and on the assumption of the GRH) the main term in (9.9) will dominate both the sum over the zeroes and of the ramified prime and prime power factors, so that $(9.8)$ will have to be nonzero. Hence there will be a prime $P$ with $\left[\frac{L / K}{P}\right]=C$ and
+
+$$
+N P \leqslant y^{2} \leqslant c_{14}^{2} \log ^{2} d_{L}
+$$
+
+
+
+\section{REFERENCES}
+
+1. E. Bombieri, Le grand crible dans la théorie analytique des nombres, Soc. math. France, Astérisque, 18,1974 .
+
+2. H. Davenport, Multiplicative Number Theory, Markham, Chicago, $1967, \mathrm{MR} 36$ # 117.
+
+3. M. Deuring, Über den Tschebotareffschen Dichtigkeitssatz, Math. Ann., 110 (1934), $414-415$
+
+4. E. Fogels, On the zeroes of Hecke's L-functions. I, II, III, Acta Arith., 7 (196I), 87-106; 7 (196I), $131-147 ; 8(1963), 307-309 . \quad$ MR $25 \# 55$, 28 # 67
+
+5. L.J. Goldstein, A generalization of the SiegelWalfisz theorem, Trans. Am. Math. Soc., 149 $(1970), 417-429 . \quad \mathrm{MR} 43 \# 181$.
+
+6. H. Heilbronn, Zeta-functions and L-functions, pp. 204-230 in Algebraic Number Theory, J.W.S. Cassels and A. Fröhlich, eds., Academic Press, 1967
+
+7. J.C. Iagarias, H.L. Montgomery, and A.M. Odlyzko, An upper bound for the least prime ideal in the chebotarev density theorem, to be published.
+
+8. S. Lang. On the zeta function of number fields, Inventiones math., $12(1971), 337-345$.
+
+9. C.R. MacCluer, A reduction of the Cebotarev density theorem to the cyclic case, Acta Arith., 15 $(1968), 45-47 . \quad \mathrm{MR} 38 \# 2117$
+
+10. C.J. Moreno, An effective Chebotarev density theorem, to be published.
+
+1l. A.M. Odlyzko, On conductors and discriminants, Durham Symposium. 12. A.V. Sokolovskii, A theorem on the zeros of Dedekind's zeta function and the distance between "neighboring" prime ideals (Russian), Acta Arith. $13(1967 / 68), \quad 321-334 . \quad M R 36 \# 6380$.
+
+13. H.M. Stark, Some effective cases of the BrauerSiegel theorem, Inventiones math., 23 (1974), $135-152$
+
+14. E.C. Titchmarsh, The Theory of the Riemann ZetaFunction, Oxford 1951. MR 13 \& 174.
+
+15. N. Tschebotareff, Die Bestimmung der Dichtigkeit einer Menge von Primzahlen, welche zu einer gegebenen Substitutionsklasse gehören, Math. Ann., $95(1926), \quad 191-228$
+
+16. B.L. van der Waerden, Modern Algebra, 3rd ed., Ungar, New York, 1950.
+
+17. E.T. Whittaker and G.N. Watson, A Course of Modern Analysis, 4th ed., Cambridge Univ. Press, 1965.
