@@ -1,5 +1,97 @@
 \documentclass[./main]{subfiles}
 \begin{document}
-\section{The contour integral}
+\section{The contour integral}\label{6}
+The next step in the proof is to evaluate $I_C(x,T)$ by evaluating 
+\[\tag{6.1}\label{(6.1)}I_{\chi}(x,T) = \frac{1}{2\pi i} \int_{\sigma_{0}-iT}^{\sigma_{0}+iT} \frac{x^s}{s}\frac{\L'}{\L}(s, \chi) \dd{s}
+\]
+for each character $\chi$ of $H = \langle g \rangle$. So far the only condition on $T$ was $T \geq 1$. We now impose the additional requirement that $T$ should not coincide with the ordinate of a zero of any of the $\L(s, \chi)$. We also introduce a new parameter, $U$, which will satisfy $U = j + 1/2$ for some non-negative integer $j$ (eventually we will let $U \to \infty$) and define 
+\[\tag{6.2}\label{(6.2)}I_{\chi}(x,T,U) = \frac{1}{2\pi i}\int_{B_{T,U}} \frac{x^s}{s} \frac{\L'}{\L}(s, \chi) \dd{s},
+\]
+where $B_{T,U}$ is the positively oriented rectangle with vertices at $\sigma_{0}-iT$, $\sigma_{0} + iT$, $-U + it$ and $-U - it$. Now $I_{\chi}(x,T,U)$ can easily be evaluated exactly in terms of the singularities of the integrand as we we will show in the next section. In this section, we will show that 
+\[\tag{6.3}\label{(6.3)} R_{\chi}(x,T,U) = I_{\chi}(x,T,U) - I_{\chi}(x,T)
+\]
+is small.\\
+The remainder $R_{\chi}(x,T,U)$ may be divided into the vertical integral 
+\[\tag{6.4}\label{(6.4)} V_{\chi}(x,T,U) = \frac{1}{2\pi} \int_{-T}^{T} \frac{x^{-U+it}}{-U+it}\,\, \frac{\L'}{\L}(-U+it, \chi) \dd{t}
+\]
+and the two horizontal integrals
+\[\tag{6.5}\label{(6.5)} H_{\chi}(x,T,U) = \frac{1}{2\pi i} \int_{-U}^{-1/4}\Big\{ \frac{x^{\sigma - iT}}{\sigma - iT}\,\, \frac{\L'}{\L}(\sigma - iT, \chi) - \frac{x^{\sigma + iT}}{\sigma + iT} \,\,\frac{\L'}{\L}(\sigma + iT, \chi)\Big\} \dd{\sigma},
+\]
+\[\tag{6.6}\label{(6.6)} H_{\chi}^{*}(x,T) = \frac{1}{2\pi i}\int_{-1/4}^{\sigma_{0}} \Big\{\frac{x^{\sigma - iT}}{\sigma - iT}\,\, \frac{\L'}{\L}(\sigma - iT, \chi) - \frac{x^{\sigma + iT}}{\sigma + iT}\,\, \frac{\L'}{\L}(\sigma + iT, \chi)\Big\} \dd{\sigma}. \]
+$V_{\chi}$ and $H_{\chi}$ will be estimated by using Lemma \ref{6.2} to bound $\L'/\L$. First, however, we prove an auxiliary result about the digamma function.
+\begin{lemma} \label{6.1}
+If $|z + k | \geq 1/8$ for all non-negative integers $k$, then 
+\[\frac{\Gamma'}{\Gamma}(z) \Vinogradov \log(|z| + 2)
+.\]
+\end{lemma}
+\begin{proof}
+If $\Re(z) \geq 1$, this is well known \cite[p.251]{17-whittaker1996course}. If $\Re(s) < 1$, then the recurrence relation 
+\[\frac{\Gamma'}{\Gamma}(u) = \frac{\Gamma'}{\Gamma}(u+1) - \frac{1}{u}
+\]
+iterated $m$ times shows that
+\[\frac{\Gamma'}{\Gamma}(z) = \frac{\Gamma'}{\Gamma}(z+m) - \sum_{k=0}^{m-1} \frac{1}{z+k}
+\]
+for any positive integer $m$. Choose $m = \lfloor|z| + 2\rfloor$. Then $\Re(z+m)>1$, so that 
+\[\frac{\Gamma'}{\Gamma}(z+m) \Vinogradov \log(|z|+2),
+\]
+while $|z+k| \geq 1/8$ for all non-negative integers $k$ implies 
+\[\sum_{k=0}^{m-1} \frac{1}{z+k} \Vinogradov \sum_{k=0}^{m-1} \frac{1}{k+1/8} \Vinogradov \log(|z| + 2)
+,\]
+which proves the lemma.
+\end{proof}
+\begin{lemma} \label{6.2}
+If $s = \sigma + it$ with $\sigma \leq -1/4$, and $|s+m| \geq 1/4$ for all non-negative integers $m$, then 
+\[\frac{\L'}{\L}(s, \chi) \Vinogradov \log A(\chi) + n_E \log(|s| + 2).
+\]
+\end{lemma}
+\begin{proof}
+The functional equation (\ref{(5.7)}) and the definitions (\ref{(5.5)}) and (\ref{(5.6)}) imply that
+\[\tag{6.7}\label{(6.7)}\frac{\L'}{\L}(s, \chi) = -\frac{\L'}{\L}(1-s, \xoverline{\chi}) - \log A(\chi) - \frac{\gamma'_{\chi}}{\gamma_{\chi}} (1-s) - \frac{\gamma'_{\chi}}{\gamma_{\chi}}(s).
+\]
+Since $\Re(1-s) \geq 5/4$, we can use Lemma \ref{5.2} to bound $(\L'/\L)(1-s, \xoverline{\chi})$. The lemma then follows by an application of Lemma \ref{6.1} to estimate the $\gamma_{\chi}$ terms.
+\end{proof}
+Estimates for $V_{\chi}(x,T,U)$ and $H_{\chi}(x,T,U)$ are now very easy to obtain. By the above lemma we have the crude estimates $(U = j + 1/2$ so that $|-U + it+m| \geq 1/4$ for all integers $m$)
+\[\tag{6.8}\label{(6.8)}  V_{\chi}(x,T,U) \Vinogradov \frac{x^{-U}}{U} \int_{-T}^{T} \Big| \frac{\L'}{\L}(-U+it, \chi) \Big| \dd{t} \Vinogradov \frac{x^{-U}}{U} T\{\log A(\chi) + n_E \log(T+U)\},
+\]
+and 
+\begin{multline}\tag{6.9}\label{(6.9)}
+H_{\chi}(x,T,U) \Vinogradov \int_{\infty}^{-1/4} \frac{x^{\sigma}}{T}(\log A(\chi) + n_E \log(|\sigma| + 2) + n_E \log T ) \dd{\sigma}\\
+\Vinogradov \frac{x^{-1/4}}{T} \{\log A(\chi) + n_E \log T\}
+\end{multline}
+Better estimates can easily be obtained, but would not be too significant, since other error terms will be much larger.
 
-\end{document}
+It remains to estimate $H_{\chi}^{*}(x,T)$. Lemma \ref{5.6} shows that 
+\[\frac{\L'}{\L}(\sigma + iT, \chi) - \sum_{\substack{\rho \\ |\gamma - T| \leq 1}} \frac{1}{\sigma + iT - \rho} \Vinogradov \log A(\chi) + n_E \log T
+\]
+if $-1/4 \leq \sigma \leq \sigma_0 = 1 + (\log x)^{-1}$, $x \geq 2$, $T \geq 2$, and a similar estimate holds for $\L'/\L$ at $\sigma - iT$. Therefore, 
+\begin{multline}\tag{6.10}\label{(6.10)}
+    H_{\chi}^{*}(x,t) - \frac{1}{2\pi i} \int_{-1/4}^{\sigma_0} \Bigg\{ \frac{x^{\sigma - iT}}{\sigma - iT} \sum_{\substack{\rho \\ |\gamma +  T| \leq 1 }} \frac{1}{\sigma - iT -\rho} - \frac{x^{\sigma + iT}}{\sigma + iT} \sum_{\substack{\rho \\ |\gamma - T| \leq 1}} \frac{1}{\sigma + iT - \rho}\Bigg\} \dd{\sigma} \\
+    \Vinogradov \int_{-1/4}^{\sigma_0} \frac{x^{\sigma}}{T} \{ \log A(\chi) + n_E \log T \} \dd{\sigma} \\\Vinogradov \frac{x}{T\log x} \{\log A(\chi) + n_E \log T\}
+\end{multline}
+To complete our estimate we show that the first integral in (\ref{(6.10)}) is not too large. 
+\begin{lemma}\label{6.3}
+Let $\rho = \beta + i \gamma$ have $0 < \beta < 1$, $\gamma \neq t$. If $|t| \geq 2$, $x \geq 2$, and $1 < \sigma_1 \leq 3$, then 
+\[ \int_{-1/4}^{\sigma_1} \frac{x^{\sigma + it}}{(\sigma + it) (\sigma + it - \rho)} \dd{\sigma} \Vinogradov |t|^{-1}x^{\sigma_1}(\sigma_1 - \beta)^{-1}.
+\]
+\end{lemma}
+\begin{proof}
+Suppose first that $\gamma > t$. Let $B$ be the rectangle with vertices at \\ $\sigma_1 + i(t-1)$, $\sigma_1 + it$, $-\frac{1}{4}+it$, $-\frac{1}{4} + i(t-1)$, oriented counterclockwise. By Cauchy's theorem, 
+\[ \int_{B} \frac{x^s}{s(s-\rho)} \dd{s} = 0
+\]
+since the integrand has no singularities inside the contour. However, on the three sides of the rectangle other than the segment from $-1/4 + it$ to $\sigma_1 + it$, the integrand is majorized by 
+\[ \frac{x^{\sigma_1}}{(|t| - 1)(\sigma_1 - \beta)}
+\]
+which proves the result for $\gamma > t$. A similar proof for $\gamma < t$ uses the rectangle with vertices at $\sigma_0 + i(t+1)$, $\sigma_0 + it$, $-1/4 + it$, $-1/4 + i(t+1)$.
+\end{proof}
+The above lemma shows that 
+\begin{multline}\tag{6.11}\label{(6.11)} \frac{1}{2\pi i} \int_{-1/4}^{\sigma_0} \frac{x^{\sigma - iT}}{\sigma - iT} \Bigg(\sum_{\substack{\rho \\ |\gamma + T| \leq 1}} \frac{1}{\sigma + iT - \rho}\Bigg) \dd{\sigma} \Vinogradov \frac{x^{\sigma_0}}{T}(\sigma_0 - 1)^{-1} n_{\chi}(-T) \\ \Vinogradov \frac{x \log x}{T}(\log A(\chi) + n_E \log(T))
+\end{multline}
+for $x \geq 2$, $T \geq 2$, and the same estimate holds for the integral involving zeroes $\rho$ with $|\gamma - T| \leq 1$. [Note that if we assume the GRH for $\L(s, \chi)$, then we can delete the $\log x$ term in (\ref{(6.11)}). Also, even without the GRH we could replace $\log x$ by $\log \log x$  by improving Lemma \ref{6.3}.] Therefore we finally obtain 
+\[\tag{6.12}\label{(6.12)} H_{\chi}^{*}(x,T) \Vinogradov \frac{x \log x}{T}(\log A(\chi) + n_E \log T).
+\]
+
+If we now combine (\ref{(6.8)}), (\ref{(6.9)}), and (\ref{(6.12)}), we obtain the main result of this section, namely that 
+\begin{multline}\tag{6.13}\label{(6.13)}
+    I_{\chi}(x,T) - I_{\chi}(x,T,U) = -V_{\chi}(x,T,U) - H_{\chi}(x,T,U) - H_{\chi}^{*}(x,T)\\ \Vinogradov \frac{x\log x}{T}\{\log A(\chi) + n_E \log T\}\\ + \frac{Tx^{-U}}{U} \{\log A(\chi) + n_E \log(T+U)\}.
+\end{multline}
+\end{document} 

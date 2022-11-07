@@ -10,14 +10,14 @@ There is a latex scan in mathpix.tex, a latex scan of this paper. Feel free to u
 
 Please READ THE STYLE GUIDE before starting any typing.
 
-sec 1 (409-417): Andrew
-sec 2 (418-420): Seewoo
+sec 1 (409-417): Andrew %done mod proofreading
+sec 2 (418-420): Seewoo %done
 sec 3 (421-429): Bhargavi
-sec 4 (429-431):
-sec 5 (431-439):
-sec 6 (440-446):
-sec 7 (446-452):
-sec 8 (452-457):
-sec 9 (457-462):
+sec 4 (429-431):Marc Melwin
+sec 5 (431-439):Marc Melwin
+sec 6 (440-446):Celeste Yuan %done
+sec 7 (446-452):Celeste Yuan %done
+sec 8 (452-457):Celeste Yuan %done
+sec 9 (457-462): Seewoo %done mod labeling
 
-if you want your name in credits, put it here: Aareyan Manzoor, Seewoo Lee
+if you want your name in credits, put it here: Aareyan Manzoor, Seewoo Lee, Sadanand Abhyankar, Andrew Lin, Celeste Yuan

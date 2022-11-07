@@ -2,51 +2,45 @@
 \begin{document}
 \section{Outline of the main argument}
 
-The main argument is primarily concerned with the derivation of an asymptotic formula with an explicit error term ofr a weighted prime-power-counting functiong $\phi_C(x) = \phi_C(x, L/K)$ associated to $\pi_C(x, L/K)$.
+The main argument is primarily concerned with the derivation of an asymptotic formula with an explicit error term of a weighted prime-power-counting function $\psi_C(x) = \psi_C(x, L/K)$ associated to $\pi_C(x, L/K)$.
 It is defined by
-
 \[
-\phi_C(x, L/K) = \sum_{\substack{N_{K/\Q}  \p^m \leq x \\ \p\text{ unramified} \\ \ArtinSymbol{L/K}{\p}^m = C }} \log(N_{K/Q} \p)
+\psi_C(x, L/K) = \sum_{\substack{\norm_{K/\Q}  \p^m \leq x \\ \p\text{ unramified} \\ \Scale[0.75]{\ArtinSymbol{L/K}{\p}}^m = C }} \log(\norm_{K/\Q} \p)
 \]
-
 The details of this argument are complicated, the main steps are simple in conception:
-
 \begin{enumerate}[(i)]
-    \item $\phi_C(x)$ differs from a truncate inverse Mellin transform
-    
+    \item $\psi_C(x)$ differs from a truncate inverse Mellin transform
     \[
     I_C(x, T) = \frac{1}{2\pi i} \int_{\sigma_0 - iT}^{\sigma_0 + iT} F_C(s) \frac{x^s}{s} \dd s,
     \]
-    
     by a remainder term $R_1(x, T)$.
     
-    \item $F_C(s)$ can in fact be written as a linear combination of logarithmic derivatives of Hecke (abelian) L-functions.
+    \item $F_C(s)$ can in fact be written as a linear combination of logarithmic derivatives of Hecke (abelian) $\L$-functions.
     As a consequence, all the singularities of $F_C(s)$, which are simply poles only, occur at zeroes and pole of $\zeta_L(s)$.
     
     \item $I_C(x, T)$ differs from a certain contour integral
-    
     \[
-    B_C(x, T) = \frac{1}{2\pi i} \oint_{B_T} F_C(s) \frac{x^s}{s} \dd s
+    B_C(x, T) = \frac{1}{2\pi i} \oint_{B_T} F_C(s) \frac{x^s}{s} \dd s,
     \]
     by a remainder term $R_2(x, T)$.
     This step is traditionally labelled ``shifting the line of integration to the left.''
     
-    Certain results on the density of zeros of $\zeta_L(s)$ in the critical strip $0 < \Re s < 1$ are necessary to estimate $R_2(x, T$.
+    Certain results on the density of zeros of $\zeta_L(s)$ in the critical strip \newline $0 < \Re s < 1$ are necessary to estimate $R_2(x, T)$.
     
     \item The contour integral $B_C(x, T)$ is evaluated by Cauchy's residue theorem.
     The integrand has poles at the zeroes and the pole of $\zeta_L(s)$, and the result is a main term $\frac{|C|}{|G|}x$ coming from the pole of $\zeta_L(s)$ at $s = 1$, together with a certain sum $S(x, T)$ over the zeroes of $\zeta_L(s)$ within the contour $B_T$.
     
-    The end result of these steps is a truncated ``explicit formula'' for $\phi_C(x)$ with an unconditional error term, which is stated as Theorem 7.1.
+    The end result of these steps is a truncated ``explicit formula'' for $\psi_C(x)$ with an unconditional error term, which is stated as Theorem \ref{7.1}
     
     \item The sum over the zeroes $S(x, T)$ is estimated.
     It is at this point that unproved hypothesis about the zeroes can be helpful.
     An unconditional upper bound for $|S(x, T)|$ is obtained using the existence of a zero-free region of $\zeta_L(s)$ near the vertical line $\sigma =1$.
     A much better estimate for $|S(x, T)|$ is made assuming the Generalized Riemann hypothesis for $\zeta_L(s)$.
     
-    \item The asymptotic formula $\phi_C(x) \sim \frac{|C|}{|G|}x$ with an explicit remainder term is derived by making an appropriate choice of $T$ as a function of $x$, to minimize the accumulated error terms.
+    \item The asymptotic formula $\psi_C(x) \sim \frac{|C|}{|G|}x$ with an explicit remainder term is derived by making an appropriate choice of $T$ as a function of $x$, to minimize the accumulated error terms.
     (This choice depends on whether the GRH is assumed or not, of course.)
     
-    \item The asymptotic formula $\pi_C(x) \sim \frac{|C|}{|G|}\Li(x)$ with an explicit remainder term is derived by partial summation from that for $\phi_C(x)$.
+    \item The asymptotic formula $\pi_C(x) \sim \frac{|C|}{|G|}\Li(x)$ with an explicit remainder term is derived by partial summation from that for $\psi_C(x)$.
     
     The remaining sections of this paper carry out the details (although we will not follow this outline exactly).
 \end{enumerate}

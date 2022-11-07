@@ -1,16 +1,122 @@
 \documentclass[./main]{subfiles}
 \begin{document}
-\section{Artin \texorpdfstring{$L$}{L}-functions and Mellin transform}
+\section{Artin \texorpdfstring{$\L$}{L}-functions and Mellin transform}\setlength{\headheight}{22.54279pt}
 
-In this section we establish the relation between $\psi_C(x)$ and a certain truncated inverse Mellin transform. Throughout this and subsequent sections we will use the abbreviations $\pi_C(x)$, $\psi_C(x)$ and $N$ for $\pi_C(x, L/K)$, $\psi_C(x, L/K)$, and $N_{K/Q}$, respectively. We will also use $\phi$ to denote irreducible characters of $G=G(L/K)$.
+In this section we establish the relation between $\psi_C(x)$ and a certain truncated inverse Mellin transform. Throughout this and subsequent sections we will use the abbreviations $\pi_C(x)$, $\psi_C(x)$ and $\norm$ for $\pi_C(x, L/K)$, $\psi_C(x, L/K)$, and $\norm_{K/\Q }$, respectively. We will also use $\phi$ to denote irreducible characters of $G=G(L/K)$.
 
 For each irreducible character $\phi$ of $G$ we define
-\[\tag{3.1}\label{3.1}
-\phi_K(P^m)=\frac{1}{e}\sum_{\alpha \in I} \phi(\tau^m\alpha),\]
-where $I$ is the inertia group of $P$, one of the prime ideal factors of $\mathcal P$, $e=|I|$ and $\tau$ is one of the Frobenius automorphisms corresponding to $\mathcal P$. If $L(s, \phi, L/K)$ is the Artin L-series associated to $\phi$, then for $\text{Re}(s)>1$ we have
-\[\tag{3.2}\label{3.2}
--\frac{L'}{L}(s, \phi, L/K)=\sum_\mathcal{P} \sum_{m=1}^\infty \phi_K(\mathcal{P}^m)\log (N \mathcal{P})(N\mathcal{P})^{-ms}\]
-where the outer sum is over all the prime ideals of $K$. We should also note that the definitions (\ref{3.1}) and (\ref{3.2}) apply equally well to reducible characters.
+\[\tag{3.1}\label{(3.1)}
+\phi_K(\p^m)=\frac{1}{e}\sum_{\alpha \in I} \phi(\tau^m\alpha),\]
+where $I$ is the inertia group of $P$, one of the prime ideal factors of $\p$, $e=|I|$ and $\tau$ is one of the Frobenius automorphisms corresponding to $\p$. If $\L(s, \phi, L/K)$ is the Artin $\L$-series associated to $\phi$, then for $\text{Re}(s)>1$ we have
+\[\tag{3.2}\label{(3.2)}
+-\frac{\L'}{\L}(s, \phi, L/K)=\sum_\p \sum_{m=1}^\infty \phi_K(\p^m)\log (\norm \p)(\norm\p)^{-ms}\]
+where the outer sum is over all the prime ideals of $K$. We should also note that the definitions (\ref{(3.1)}) and (\ref{(3.2)}) apply equally well to reducible characters.
 
-To single out those $\mathcal{P}^m$ with $\ArtinSymbol{L/K}{\mathcal{P}}^m=C$, we will use the characters $\phi$.
+To single out those $\p^m$ with $\ArtinSymbol{L/K}{\p}^m=C$, we will use the characters $\phi$. (unfortunateky this works only to the extent that some extraneous prime powers $\p^m $ corresponding to $\p$ that ramify in $L$ are also included.) Suppose that $g \in C$. We define a function $f_C:G \longrightarrow \mathbb C$ by
+\[ \tag{3.3} \label{(3.3)} f_C= \sum_\phi \xoverline{\phi}(g)\phi.\]
+Then the orthogonality relations for characters imply that 
+\[ \tag{3.4} \label{(3.4)} f_C(\tau) =\begin{cases} 
+\dfrac{|G|}{|C|} & \text{ if } \tau \in C, 
+\\
+0 & \text{ if } \tau \notin C.
+\end{cases}\]
+Hence if 
+\[\tag{3.5} \label{(3.5)}  F_C(s)=-\frac{|C|}{|G|}\sum_\phi \xoverline{\phi}(g)\frac{\L'}{\L}(s, \phi, L/K) ,  \]
+then (\ref{(3.2)}) through (\ref{(3.5)}) show that for $\text{Re}(s)>1$ we have the Dirichlet series expansion
+\[\tag{3.6} \label{(3.6)} F_C(s)=\sum_\p\sum_{m=1}^\infty \theta(\p^m)\log (\norm\p)(\norm\p)^{-ms},\]
+where for $\p$ unramified in $L$ we have
+\[ \theta(\p^m)=\begin{cases}
+1 &\text{ if }\ArtinSymbol{L/K}{\p}^m=C, \\
+0 &\text{ otherwise},
+\end{cases}\]
+and $|\theta(\p^m)|\le 1$ if $\p$ ramifies in L.
+
+Equation (\ref{(3.6)}) shows that except for the ramified prime factors, $\psi_C(x)$ is a partial sum of the coefficients of $F_C(s)$. To obtain $\psi_C(x)$ from $F_C(s)$ we will use the following well-known truncated version of the inverse Mellin transform \cite[p. 54]{15-Tschebotareff1926}, \cite[pp. 109-110]{2-davenport2013multiplicative}.
+
+\begin{lemma} \label{3.1}
+If $y>0$, $\sigma>0$, and $T>0$, then \begin{align*}
+    &\bigg| \frac{1}{2 \pi i} \int_{\sigma-iT}^{\sigma+iT} \frac{y^s}{s}\dd s-1 \bigg| \le y^\sigma \min(1, T^{-1}|\log y|^{-1}) &\text{ if } y>1 \\
+     &\bigg| \frac{1}{2 \pi i} \int_{\sigma-iT}^{\sigma+iT} \frac{y^s}{s}\dd s-\frac{1}{2} \bigg| \le \sigma T^{-1}& \text{ if } y=1 \\
+    &\text{and} &\\
+     &\bigg| \frac{1}{2 \pi i} \int_{\sigma-iT}^{\sigma+iT} \frac{y^s}{s}\dd s\bigg| \le y^\sigma \min(1, T^{-1}|\log y|^{-1})&\text{ if } 0<y<1.
+\end{align*}
+\end{lemma}
+
+Let $\sigma_0>1$, $x\ge 2$, and define
+\[ \tag{3.7}\label{(3.7)}
+I_C(x,T)= \frac{1}{2 \pi i} \int_{\sigma_0-iT}^{\sigma_0+iT} F_C(s)\frac{x^s}{s}\dd s.\]
+Since the Dirichlet series in (\ref{(3.6)}) is absolutely convergent for $\text{Re}(s)>1$, we can integrate term by term (with the help of Lemma \ref{3.1}) to obtain
+\[ \tag{3.8}\label{(3.8)}
+\Bigg| I_C(x,T)-\sum_{\substack{\p, m \\ \norm\p^m \le x}} \theta(\p^m)\log \norm\p \Bigg| \le \sum_{\substack{\p, m \\ \norm\p^m=x}}\{\log \norm\p+ \sigma_0T^{-1}\} +R_0(x,T),\]
+where \[ \tag{3.9}\label{(3.9)}
+R_0(x,T)=\sum_{\substack{\p, m \\ \norm\p^m\neq x}}\Big( \frac{x}{\norm\p^m}\Big)^{\sigma_0} \min\bigg(1, T^{-1}\Big| \log \frac{x}{\norm\p^m}\Big|^{-1}\bigg) \log \norm \p\]
+and where the sum on the right side of (\ref{(3.8)}) is present only when there are $\p$ and $m$ with $\norm\p^m=x$. Now the sum of the left side of (\ref{(3.8)}) equals $\psi_C(x)$, except for the ramified prime terms. However, $\norm\p \ge 2$ for each prime ideal $\p$, all the ramified prime ideals $\p$ divide the discriminant of $L$ over $K$, and so 
+\[\begin{aligned}
+    \Bigg|\sum_{\substack{\p, m \\ \norm\p^m \le x}} \theta(\p^m)\log \norm\p -\psi_C(x)\Bigg| &\le \sum_{\substack{\p, m \\ \p \text{ ramified} \\ \norm\p^m \le x}} \log \norm\p 
+    \\
+    & \le \sum_{\substack{\p \\ \p \text{ ramified} }} \log \norm \p \sum_{\substack{m\\ \norm\p^m\le x}} 1 \\
+    & \le 2 \log x \sum_{\substack{\p \\ \p \text{ ramified}}} \log \norm\p \\
+    & \le 2 \log x \log \disc_L
+\end{aligned}\]
+(We should remark that this estimate would be the same even if $C$ were a union of conjugacy classes.) Also, there are at most $n_K$ distinct pair $(\p, \, m)$ such that $\norm\p^m=x$, and so
+\[ \sum_{\substack{\p, m \\ \norm\p^m=x}} \log \norm \p \le n_K\log x.\]
+Thus (\ref{(3.8)}) yields
+\[\tag{3.10} \label{(3.10)} \psi_C(x)=I_C(x,T)+R_1(x,T),\]
+where
+\[\tag{3.11} \label{(3.11)} R_1(x,T) \le 2 \log x \log \disc_L+n_K\sigma_0T^{-1}+n_K \log x +R_0(x,T).\]
+The remainder of this section is devoted to establishing an estimate for $R_0(x,T)$.
+
+So far we allowed $\sigma_0$ to be any number $>1$. We now define
+\[\tag{3.12} \label{(3.12)} \sigma_0=1+(\log x)^{-1}.\]
+While this is only one of many possible choices, it is quite convenient, not least because of the relation $x^{\sigma_0}=ex$.
+
+We now write $R_0(x,T)=S_1+S_2+S_3$, where $S_1$ consists of those terms of (\ref{(3.9)}) for which $\norm\p^m \le \frac{3}{4}x$ or $\norm\p^m \ge \frac{5}{4}x$, $S_2$ of those for which $|x-\norm\p^m|\le 1$, and $S_3$ of the remaining ones. If $\norm\p^m \le \frac{3}{4}x$ or $\norm\p^m\ge \frac{5}{4}x$, then
+\begin{align*}
+\Big|\log\frac{x}{\norm\p^m}\Big|&\ge \log\frac{5}{4},\\
+\min\bigg(1, T^{-1}\Big|\log \frac{x}{\norm\p^m}\Big|^{-1}\bigg)&\Vinogradov T^{-1} \quad\text{ for } T\ge 1,
+\end{align*}
+and so
+\[\tag{3.13}\label{(3.13)}
+    S_1 \Vinogradov xT^{-1} \sum_{\p, m} (\norm\p)^{-m\sigma_0} \log \norm
+    = xT^{-1}\Big[-\frac{\zeta_K^{'}}{\zeta_K}(\sigma_0)\Big].
+\]
+To bound this term we use an auxiliary result.
+
+\begin{lemma}\label{3.2}
+For $\sigma>1$,
+\[-\frac{\zeta_K^{'}}{\zeta_K}(\sigma)\le -n_K \frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma). \]
+\end{lemma}
+\begin{proof}
+We have
+\[ -\frac{\zeta_K^{'}}{\zeta_K}(\sigma)=\sum_{\p}\frac{\log \norm\p}{(\norm\p)^\sigma-1}, \quad -\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)=\sum_p \frac{\log p}{p^\sigma-1}\]
+where in the second sum $p$ runs through the rational primes. Now for each prime ideal $\p$, $\norm\p=p^k$ for some positive integer $k$. Thus
+\[ \frac{\log \norm\p}{(\norm\p)^\sigma-1}=\frac{k \log p}{p^{k\sigma}-1}=\frac{k}{p^{(k-1)\sigma}+ \dots +1 }\cdot \frac{\log p}{p^\sigma-1}\le \frac{\log p}{p^{\sigma}-1}. \]
+Also, there are at most $\norm_K$ distinct $\p$ lying over a given rational prime $p$, so that
+\[ -\frac{\zeta_K^{'}}{\zeta_K}(\sigma)\le n_K \sum_p \frac{\log p}{p^\sigma-1}=-n_k\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)\]
+\end{proof}
+Since 
+\[-\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)\Vinogradov(\sigma-1)^{-1} \]
+for $\sigma>1$, Lemma \ref{3.2}
+and (\ref{(3.13)}) show that for $T\ge 1$, 
+\[\tag{3.14}\label{(3.14)} S_1 \Vinogradov n_KxT^{-1}\log x.\]
+The second sum $S_2$ consists of those terms $\p^m$ for which $0<|\norm\p^m-x| \le 1$. There are at most $2n_K$ of such $\p^m$ and since
+\[ \min\bigg(1, T^{-1}\Big| \log \frac{x}{\norm\p^m}\Big|^{-1}\bigg) \le 1,\]
+we obtain
+\[
+    S_2  \le 2n_K\log(x+1) \Big(\frac{x}{x-1}\Big)^{\sigma_0} 
+     \label{3.15}\tag{3.15}\Vinogradov  n_K\log x.
+\]
+The final sum $S_3$ consists of those terms $\p^m$ for which $1 < |\norm\p^m-x|<\frac{1}{4}x.$ Here we use the estimate
+\[ \Big|\log \frac{x}{n}\Big|^{-1}\le \frac{2n}{|x-n|}, \]
+valid for $\norm\ge \frac{1}{2}x$, to obtain
+\begin{align*}
+    S_3&\Vinogradov T^{-1}\log x \sum_{\substack{n \\ 1< |n-x|< \frac{1}{4}x}}\Big|\log \frac{x}{n}\Big|^{-1}\sum_{\substack{\p, m \\ \norm\p^m=n}}1 \\
+    & \Vinogradov n_KxT^{-1}\log x \sum_{1 \le k < \frac{1}{4}x} \frac{1}{k} \\
+    & \label{(3.16)} \tag{3.16}\Vinogradov n_K xT^{-1}(\log x)^2.
+\end{align*}
+Putting (\ref{(3.14)})-(\ref{(3.16)}) together we obtain
+\[\label{(3.17)} \tag{3.17} R_0(x,T) \Vinogradov n_K\log x + n_KxT^{-1}(\log x)^2,\]
+valid for all $x \ge 2$, $T\ge 1$. If we now combine (\ref{(3.17)}) with (\ref{(3.11)}), we obtain finally the estimate
+\[\label{(3.18)} \tag{3.18} R_1(x,T) \Vinogradov\log x \log \disc_L+n_K\log x+ n_KxT^{-1}(\log x)^2,  \]
+valid for all $x \ge 2$, $T\ge 1$, which was the goal of this section. We should mention here that the $\log x \log \disc_L$ term in (\ref{(3.18)}) (which came from the ramified primes) would have been the same even if $C$ were to be the union of any number of conjugacy classes. Let us also note that if $L \neq \Q $, then $n_K \le n_L \Vinogradov \log \disc_L$, and so the second term on the right side of (\ref{(3.18)}) can be absorbed in the first one.
 \end{document}

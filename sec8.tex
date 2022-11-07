@@ -1,5 +1,70 @@
 \documentclass[./main]{subfiles}
 \begin{document}
 \section{Zero-free regions}
-
+In this section we will use the classical method to prove a zero-free region for $\zeta_L(s)$. Since 
+\[\tag{8.1}\label{(8.1)} \zeta_L(s) = \prod_{\chi} \L(s, \chi)
+\]
+and the $\L(s, \chi)$ are all analytic for $s \neq 1$, any zero-free region for $\zeta_L(s)$ immediately implies one for each of the $\L(s, \chi)$. This approach does have the serious disadvantage that one can often obtain directly with the $\L(s, \chi)$ (cf. \cite[Ch. 14]{2-davenport2013multiplicative}); in fact, one can essentially replace $\log \disc_L$ by $\max(\log A(\chi))$ and $n_L$ with $n_E$ in the estimates below. The problem with that result is that in general $n_E$ can be almost as large as $n_L$ and $\max(\log A(\chi))$ almost as large as $\disc_L$. Finally, we should mention that for a fixed $L$ a better zero-free region can be obtained by more sophisticated methods \cite{12-Sokolovskii}, but the published versions are not explicit as to the dependence on the field $L$.
+\begin{lemma}\label{8.1}
+There is an absolute, effectively computable constant $c_8$ such that $\zeta_L(s)$ has no zeroes $\rho = \beta + i \gamma$ in the region 
+\begin{align*}
+|\gamma| &\geq (1 + 4\log \disc_L)^{-1} \\
+\beta &\geq 1 - c_8(\log \disc_L + n_L \log(|\gamma| + 2))^{-1}
+\end{align*}
+\end{lemma}
+\begin{proof}
+We have 
+\[\tag{8.2}\label{(8.2)} -\frac{\zeta_L'}{\zeta_L} = \sum_{m=1}^{\infty} \alpha(m)m^{-s}
+\]
+for $\sigma = \Re(s) > 1$, where $\alpha(m) \geq 0$ for all $m$. Hence 
+\begin{multline*}
+    \Re\Big(-3\frac{\zeta_L'}{\zeta_L}(\sigma) - 4 \frac{\zeta_L'}{\zeta_L}(\sigma + it) - \frac{\zeta_L'}{\zeta_L}(\sigma + 2it)\Big) \\
+    = \sum_{m=1}^{\infty} \alpha(m)m^{-\sigma}(3 + 4\cos(t \log m) + \cos(2t \log m)) \geq 0
+\end{multline*}
+by the classical identity
+\[ 3 + 4\cos \theta + 2 \cos \theta = 2(1 + \cos \theta)^2 \geq 0
+\]
+If we now consider the trivial normal extension $L$ of $L$, then $\zeta_L(s)$ is the Artin $\L$-function associated to the principal character, and if $\gamma_L(s)$ denotes the associated gamma factor then (\ref{(5.11)}) shows that 
+\[\tag{8.3}\label{(8.3)} 2 \frac{\zeta_L'}{\zeta_L}(s) = \sum_{\rho} \Big(\frac{1}{s-\rho} + \frac{1}{s-\xoverline{\rho}}\Big) - \log \disc_L - \frac{2}{s} - \frac{2}{s-1} - 2 \frac{\gamma_L'}{\gamma_L}(s),
+\]
+where the summation is over the nontrivial zeroes $\rho$ of $\zeta_L(s)$. We note here that if $\Re s > 1$, then $\Re(s-\rho)^{-1} > 0$ for each zero $\rho$. If $\rho = \beta + i \gamma$ is some particular zero with $\gamma \geq (1 + 4 \log \disc_L)^{-1}$, then we find that for $\sigma > 1$, 
+\begin{align*}
+    -\frac{\zeta_L'}{\zeta_L}(\sigma) &\leq \frac{1}{\sigma - 1} + \frac{1}{\sigma} + \frac{1}{2}\log \disc_L + \frac{\gamma_L'}{\gamma_L}(\sigma) - \sum_{\rho} \Re(\sigma - \rho)^{-1} \\
+    &\leq \frac{1}{\sigma - 1} + c_9 \log \disc_L + c_9n_L,
+\end{align*}
+\begin{align*}
+    -\Re \frac{\zeta_L'}{\zeta_L}(\sigma + 2 i\gamma) &\leq \frac{1}{2} \log \disc_L + \Re \Big\{\frac{1}{\sigma + 2i\gamma -1} + \frac{1}{\sigma + 2 i \gamma} \Big\} + \Re \frac{\gamma_L'}{\gamma_L}(\sigma + 2 i \gamma) \\
+   & \leq c_{10} \log \disc_L + c_{10} n_L \log(|\gamma| + 2),
+\end{align*}
+and 
+\[-\Re \frac{\zeta_L'}{\zeta_L}(\sigma + i \gamma) \leq c_{11} \log \disc_L + c_{11}n_L \log(|\gamma| + 2) - \frac{1}{\sigma - \beta},
+\]
+where in the last inequality we have included the contribution of the zero \newline $\rho = \beta + i \gamma$. These inequalities and (\ref{(8.2)}) show that for all $\sigma > 1$
+\[ \frac{4}{\sigma - \beta} < \frac{3}{\sigma - \beta} + c_{12}\{\log \disc_L + n_L \log(|\gamma| + 2) \}
+\]
+If we now set $\sigma = 1 + (100c_{12})^{-1}\{\log \disc_L + n_L \log(|\gamma|+2)\}^{-1}$, say, then we obtain the result of the lemma.
+\end{proof}
+In addition to Lemma \ref{8.1} we also need information about zeroes $\zeta_L(s)$ very near the real axis. Such information can be obtained by methods very similar to those used above.
+\begin{lemma}\label{8.2}
+If $n_L > 1$ then $\zeta_L(s)$ has at most one zero $\rho = \beta + i \gamma$ in the region 
+\begin{align*}\tag{8.4}\label{(8.4)}
+    |\gamma| &\leq (4 \log \disc_L)^{-1},\\
+    \beta &\geq 1 - (4 \log \disc_L)^{-1}
+\end{align*}
+This zero, if it exists, has to be real and simple.
+\end{lemma}
+\begin{proof}
+Identity (\ref{(8.3)}) shows that for $1 < \sigma \leq 2$
+\begin{align*}\tag{8.5}\label{(8.5)} \sum_{\rho} \frac{\sigma - \beta}{(\sigma - \beta)^2 + \gamma^2} &= \frac{1}{\sigma - 1} + \frac{1}{2}\log \disc_L + \frac{\zeta_L'}{\zeta_L}(\sigma) + \frac{1}{\sigma} + \frac{\gamma_L'}{\gamma_L}(\sigma) \\
+&\leq \frac{1}{\sigma - 1} + \frac{1}{2} \log \disc_L
+\end{align*}
+since $\zeta'/\zeta \leq 0$ and it is easily verified that
+\[ \frac{1}{\sigma} + \frac{\gamma_L'}{\gamma_L}(\sigma) = \Big(\frac{1}{\sigma} - \frac{n_L}{2} \log \pi \Big) + \frac{a(L)}{2}\frac{\Gamma'}{\Gamma}\Big(\frac{\sigma}{2}\Big) + \frac{b(L)}{2} \frac{\Gamma'}{\Gamma}\Big(\frac{\sigma+1}{2}\Big) < 0
+\]
+for $1 < \sigma \leq 1 + (\log 3)^{-1}$. If $\rho = \beta + i \gamma$ is in the region described by (\ref{(8.4)}) and $\gamma \neq 0$, then (\ref{(8.5)}) gives 
+\[2 \frac{\sigma - \beta}{(\sigma - \beta)^2 + \gamma^2} \leq \frac{1}{\sigma - 1}  + \frac{1}{2}\log \disc_L,
+\]
+which is false at $\sigma = 1 + (\log \disc_L)^{-1} \leq 1 + (\log 3)^{-1}$. We similarly obtain a contradiction if there is more than one real zero in our region. 
+\end{proof}
+If the possible zero described by the above lemma exists, we denote it $\beta_0$ and call it the exceptional (Siegel) zero. We also note that if $n_L = 1$ (so that $L = \Q, \,\log \disc_L = 0)$, then $\zeta_L$ has no nontrivial zeroes $\rho$ with $|\gamma| < 14$. If $\beta_0$ exists, then (\ref{(8.1)}) shows that there exists a unique $\chi_0$ such that $\L(\beta_0, \chi_0) = 0$. This $\chi_0$ must then be a real character, as $\L(\beta_0, \xoverline{\chi_0}) = \xoverline{\L(\beta_0, \chi_0)} = 0$.
 \end{document}

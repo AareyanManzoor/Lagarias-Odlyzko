@@ -1,5 +1,128 @@
 \documentclass[./main]{subfiles}
 \begin{document}
-\section{Density of zeroes of Hecke \texorpdfstring{$L$}{L}-functions}
+\section{Density of zeroes of Hecke \texorpdfstring{$\L$}{L}-functions}\setlength{\headheight}{22.54279pt}
+We have now shown that for $x\geq 2$ and $T\geq1$, say,
+\[\psi_C(x) = I_C{(x,t)} + R_1(x,T), \]
+where $R_1(x,T)$ satisfies (\ref{(3.18)}) and
+\[\tag{5.1}\label{(5.1)}I_C(x,T) = -\frac{\small|C\small|}{\small|G\small|}\sum_{\chi}{\xoverline{\chi}(g)\frac{1}{2\pi i}}\int_{\sigma_0-iT}^{\sigma_0+iT}{\frac{x^s}{s}\frac{\L'}{\L}(s,\chi,L/E)\dd{s}}, \]
+where $\sigma_0=1+\small(\log{x}\small)^{-1}$ and $\chi$ runs through the (one-dimensional) irreducible characters of $H=\langle g\rangle$. Our next goal will be to evaluate each of the integrals in (\ref{(5.1)}). [This turns out to be more convenient than integrating $F_C(s)$.] To accomplish this we will need some upper bounds on the number of singularities of $\L'/\L$.
 
+Since $L$ and $E$ are going to be fixed from now on, we will use $\L(s,\chi)$ to denote $\L(s,\chi,L/E)$. Also, we let $F(\chi)$ denote the conductor of $\chi$ and set
+\[\tag{5.2}\label{(5.2)}A(\chi) = \disc_E\norm_{E/Q}(F(\chi)) \]
+and
+\[\tag{5.3}\label{(5.3)}\delta(\chi) =
+\begin{cases}
+1 & \text{if } \chi = \chi_1,\text{ the principal character,} \\
+0 & \text{otherwise.}
+\end{cases}\]
+We recall that for each $\chi$ there exist non-negative integers $a = a(\chi),\quad b=b(\chi)$ such that
+\[\tag{5.4}\label{(5.4)}a(\chi)+b(\chi) = n_E,\]
+and such that if we define
+\[\tag{5.5}\label{(5.5)}\gamma_\chi(s) = \bigg[\pi^{-\frac{s+1}{2}}\Gamma\Big(\frac{s+1}{2}\Big)\bigg]^b\bigg[\pi^{-\frac{s}{2}}\Gamma\Big(\frac{s}{2}\Big)\bigg]^a\]
+and
+\[\label{(5.6)}\tag{5.6} \xi(s,\chi)= [s(s-1)]^{\delta(\chi)}A(\chi)^{s/2}\gamma_{\chi}(s)\L(s,\chi),\]
+then $\xi(s,\chi)$ satisfies the functional equation
+\[\label{(5.7)}\tag{5.7}\xi(1-s,\xoverline{\chi}) = W(\chi)\xi(s,\chi),\]
+where $W(\chi)$ is a certain constant of absolute value $1$. Furthermore, $\xi(s,\chi)$ is an entire function of order $1$ and does not vanish at $s=0$, and hence by the Hadamard product theorem we have
+\[\tag{5.8}\label{(5.8)}\xi(s,\chi) = e^{B_1(\chi)+B(\chi)s} \prod_{\rho}{\Big(1-\frac{s}{\rho}\Big)e^{s/\rho}}\]
+for some constants $B_1(\chi)$ and $B(\chi)$ where $\rho$ runs through all the zeroes of $\xi(s,\chi)$, which are precisely those zeroes $\rho = \beta + i\gamma$ of $L(x,\chi)$ for which $0<\beta<1$ [the so-called ``nontrivial zeroes'' of $\L(s,\chi)$]. [We recall that $\L(s,\chi)$ and hence $\xi(s,\chi)$ have no zeroes $\rho$ with $\Re{(\rho)}\geq1$.] From now on $\rho$ will denote the nontrivial zeroes of $\L(s,\chi)$.
+
+Since we are interested in the integrals in (\ref{(5.1)}), which involve $L'/L$, we differentiate (\ref{(5.6)}) and (\ref{(5.8)}) logarithmically to obtain the important identity
+\[\label{(5.9)}\tag{5.9}\frac{\L'}{\L}(s,\chi) = B(\chi) + \sum_{\rho}{\Big(\frac{1}{s-\rho}+\frac{1}{\rho}\Big)}-\frac{1}{2}\log{A(\chi)} - \delta(\chi)\Big[\frac{1}{s}+\frac{1}{s-1}\Big] - \frac{{\gamma'}_\chi}{\gamma_\chi}(s),\]
+valid identically in the complex variable $s$. A difficulty in the use of this formula is caused by the presence of the constant $B(\chi)$, which depends in an as-yet-undetermined way on $\chi$. However, since $(s-1)^{\delta(\chi)}\L(s,\chi)$ is entire, the functional equation (\ref{(5.7)}) easily implies the following result which is proved in \cite{11-odlyzko1977}.
+\begin{lemma}\label{5.1}
+With notation as above,
+\[\tag{5.10}\label{(5.10)}\Re{B(\chi)} = -\sum_{\rho}\Re{\frac{1}{\rho}}\,,\]
+and
+\begin{multline}\tag{5.11}\label{(5.11)}\frac{\L'}{\L}(s,\chi) + \frac{\L'}{\L}(s,\xoverline{\chi}) = \sum_{\rho}{\Big(\frac{1}{s-\rho}+\frac{1}{s-\xoverline{\rho}}\Big)} - \log{A(\chi)} \\ -2\delta(\chi)\Big(\frac{1}{s}+\frac{1}{s-1}\Big) - 2\frac{{\gamma'}_\chi}{\gamma_\chi}(s)
+\end{multline}
+holds identically in the complex variable $s$, where $\rho$ runs through the nontrivial zeroes of $\L(s,\chi)$.
+\end{lemma}
+
+This lemma will enable us to obtain estimates of both of $B(\chi)$ and of the density of zeroes of $\L(s,\chi)$. We should mention, however, that an analog of the above lemma could be proved for general Artin $\L$-functions, but it would contain sums over the possible poles of such $\L$-functions, and these pole terms would prevent us from obtaining an estimate as good as the one below. The purpose of the preceding section's reduction to the case of abelian $\L$-function was to avoid these difficulties.\\
+\indent We first derive some easy auxiliary results.
+\begin{lemma}\label{5.2}
+If $\sigma = \Re{(s)} > 1$, then
+\[\Big| \frac{\L'}{\L}(s,\chi)\Big| \Vinogradov \frac{n_E}{\sigma-1}.\]
+\end{lemma}
+\begin{proof}
+A comparison of the Dirichlet series shows that
+\[\Big| \frac{\L'}{\L}(s,\chi)\Big| \leq -\frac{\zeta'_E}{\zeta_E}(\sigma),\]
+and the result follows from Lemma \ref{3.2}.
+\end{proof}
+\begin{lemma}\label{5.3}
+If $\sigma = \Re{(s)}>-1/2$ and $|s| \geq 1/8$, then
+\[ \bigg| \frac{\gamma'_\chi}{\gamma_\chi}(s)\bigg| \Vinogradov n_E\log{\big(|s|+2\big)}.\]
+\end{lemma}
+\begin{proof}
+This lemma follows from the definition of $\gamma_\chi(s)$ and the fact that
+\[\frac{\Gamma'}{\Gamma}(z) \Vinogradov\log{\big(|z|+2\big)}\]
+for $z$ satisfying $|z|\geq 1/16, \quad \Re{z} > -1/4$ \cite[p.251]{17-whittaker1996course} (cf. Lemma \ref{6.1}). 
+\end{proof}
+We now come to the main result of this section. We let $n_\chi(t)$ denote the number of zeroes $\rho = \beta + i\gamma$ of $\L(s,\chi)$ with $0<\beta<1, \quad |\gamma-t|\leq1$.
+\begin{lemma}{\label{5.4}}
+For all $t$ we have
+\[\label{(5.12)}\tag{5.12} n_\chi(t)\Vinogradov\log{A(\chi)}+n_E\log{\big(|t|+2\big)}.\]
+\end{lemma}
+\begin{proof}
+We evaluate (\ref{(5.11)}) at $s = 2 + it$. Lemmas \ref{5.2} and \ref{5.3} imply that
+\[\tag{5.13}\label{(5.13)}\sum_{\rho}{\Re{\Big(\frac{1}{s-\rho}+\frac{1}{s-\xoverline{\rho}}\Big)}}\Vinogradov\log{A(\chi)}+n_E\log{\big(|t|+2\big)}.\]
+But $\Re{(s-\rho)}^{-1}>0$ and $\Re{(s-\xoverline{\rho})}^{-1}>0$ since $2 = \Re{(s)} > \Re{(\rho)}$ so
+\begin{align*}
+   \sum_{\rho}{\Re{\Big(\frac{1}{s-\rho}+\frac{1}{s-\xoverline{\rho}}\Big)}} &\geq \sum_{\substack{\rho \\|\gamma-t|\leq1}}{\frac{2-\beta}{(2-\beta)^2+(t-\gamma)^2}}\\ &\geq\sum_{\substack{\rho \\|\gamma-t|\leq1}}{\frac{1}{5}} = \frac{1}{5}n_\chi(t),
+\end{align*}
+since $1<2-\beta<2$, which proves the lemma.
+\end{proof}
+The bound (\ref{(5.12)}) (which is essentially best possible) will be crucial in many of our subsequent arguments. In the case of general Artin $\L$-functions, we could obtain an estimate similar to (\ref{(5.13)}), but it would be for the difference of a sum over the zeroes and a similar sum over the poles and the real part of the poles' contribution would be negative.
+
+We now utilize Lemma \ref{5.4} to obtain two additional auxiliary results. We first show that $B(\chi)$ depends mostly on the very small zeroes of $\L(s,\chi)$.
+\begin{lemma}\label{5.5}
+For any $\eps$ with $0 < \eps \leq 1$ we have
+\[B(\chi) + \sum_{\substack{\rho\\|\rho|<\eps}}{\frac{1}{\rho}}\Vinogradov \eps^{-1}\big(\log{A(\chi)}+n_E\big).\]
+\end{lemma}
+\begin{proof}
+Set $s=2$ in (\ref{(5.9)}) and use lemmas \ref{5.2} and \ref{5.3} to estimate the $\L(s,\chi)$ and $\gamma_\chi$ terms, respectively. We obtain
+\[B(\chi) + \sum_{\rho}{\Big(\frac{1}{2-\rho}+\frac{1}{\rho}\Big)}\Vinogradov \log{A(\chi)}+n_E.\]
+Now
+\[\Big|\frac{1}{2-\rho}+\frac{1}{\rho}\Big| = \frac{2}{\big|\rho(2-\rho)\big|}\leq \frac{2}{|\rho|^2} \]
+and so Lemma \ref{5.4} implies
+\[\sum_{\substack{\rho\\|\rho|\geq1}}{\Big|\frac{1}{2-\rho}+\frac{1}{\rho}\Big|} \Vinogradov \sum_{j=1}^{\infty}{\frac{n_\chi(j)}{j^2}}\Vinogradov\log{A(\chi)}+n_E .\]
+Also, $|2-\rho|\geq1$, so
+\[\sum_{|\rho|<1}{\Big|\frac{1}{2-\rho}\Big|} \Vinogradov \log{A(\chi)}+n_E,\]
+and hence
+\[B(\chi) + \sum_{\substack{\rho \\ |\rho|<\eps}}{\frac{1}{\rho}}\Vinogradov\sum_{\substack{\rho\\\eps\leq|\rho|<1}}{\frac{1}{|\rho|}}+\log{A(\chi)}+n_E,\]
+which together with Lemma \ref{5.4} completes the proof.
+\end{proof}
+\begin{lemma}\label{5.6}
+If $s=\sigma+it$ with $-1/2\leq\sigma\leq3,\quad|s|\geq1/8$, then
+\[\bigg|\frac{\L'}{\L}(s,\chi) + \frac{\delta(\chi)}{s-1} - \sum_{\substack{\rho\\|\gamma-t|\leq1}}{\frac{1}{s-\rho}}\bigg|\Vinogradov\log{A(\chi)} + n_E\log{\big(|t|+2\big)}.
+\]
+\begin{proof}
+We evaluate (\ref{(5.9)}) at $\sigma + it$ and $3+it$ and subtract the resulting relations [in order to eliminate $B(\chi)$] to obtain
+\begin{multline*} \frac{\L'}{\L}(s,\chi) - \frac{\L'}{\L}(3+it,\chi) = \sum_{\rho}{\Big(\frac{1}{s-\rho}-\frac{1}{3+it-\rho}\Big)} - \frac{{\gamma'}_\chi}{\gamma_\chi}(s)\\ + \frac{{\gamma'}_\chi}{\gamma_\chi}(3+it) - \delta(\chi)\Big(\frac{1}{s}+\frac{1}{s-1}-\frac{1}{2+it}-\frac{1}{3+it}\Big).
+\end{multline*}
+We now use Lemmas \ref{5.2} and \ref{5.3} to estimate the $\L(3+it,\chi)$ and the gamma factors, respectively. We discover that
+\begin{multline}\tag{5.14}\label{(5.14)}
+\Bigg|\frac{\L'}{\L}(s,\chi) + \frac{\delta(\chi)}{s-1} - \sum_{\substack{\rho \\ |\gamma-t|\leq1}}{\frac{1}{s-\rho}}\Bigg|
+\Vinogradov n_E\log{\big(|t|+2\big)} + \sum_{\substack{\rho\\|\gamma-t|>1}}{\Big|\frac{1}{s-\rho}-\frac{1}{3+it-\rho}\Big|} \\ + \sum_{\substack{\rho\\|\gamma-t|\leq1}}{\Big|\frac{1}{3+it-\rho}\Big|}.
+\end{multline}
+Since $|3+it-\rho|>1$ for all $\rho$ and there are $n_\chi(t)$ terms in the last sum, it is~$\Vinogradov\log{A(\chi)}+n_E\log{\big(|t|+2\big)}$. For the first sum on the right side of (\ref{(5.14)}) we have
+\begin{align*}
+    \sum_{\substack{\rho\\|\gamma-t|>1}}{\Big|\frac{1}{s-\rho}-\frac{1}{3+it-\rho}\Big|}& = \sum_{\substack{\rho\\|\gamma-t|>1}}{\frac{3-\sigma}{\big|s-\rho\big|\big|3+it-\rho\big|}} \\& \Vinogradov \sum_{j=1}^{\infty}{\frac{n_\chi(t+j) +n_\chi(t-j)}{j^2}} \\ &\Vinogradov \log{A(\chi)} + n_E\log{\big(|t|+2\big)},
+\end{align*}
+and this proves the lemma.
+\end{proof}
+\end{lemma}
 \end{document}
+%Notes
+%   Equation 5.2 looks funny, is there some normal operator for N?
+%   Exponents in eq 5.5 not looking too hot
+%   Equation 5.8 is that mathfrak p or is it rho? If you want to replace it, i've written it in as \rho everywhere
+%   Is the integral inside the sum in eqn 5.1?
+%   Again, 5.9, i assume the sum ends after 1/rho)
+% eqn 5.11 uses multline environment, line break mimicks the original paper.
+% "reduction to the case of abelian L-function was to..." - grammatical error in pdf?
+%   two lines below the sums in lemma 5.5 & proof of lemma 5.4&5.5 (line89).
+%   TODO: Need to replace the gamma'_\chi with proper typesetting.
+%   Anyone feel free to edit stuff, I'm pretty much done writing the outline.
+

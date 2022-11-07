@@ -1,15 +1,22 @@
 \documentclass[twoside]{article}
 
 \input{preamble/preamble}
-\title{Effective Versions of the Chebotarev Density Theorem}
+\title{Effective Versions of the Chebotarev Density Theorem\thanks{Typeset by the TeXromancers, credits go to: Aareyan Manzoor, }} %put name here
 \addbibresource{references.bib}
 \author{J.C. Lagarias and A.M. Odlyzko}
+\date{}
 
 
 \begin{document}
 
-\tableofcontents
+\maketitle
 
+
+\setstretch{0.1}
+\tableofcontents
+\setstretch{1.5}
+
+\pagestyle{fancy}
 
 \subfile{sec1.tex}
 \subfile{sec2.tex}
@@ -21,5 +28,11 @@
 \subfile{sec8.tex}
 \subfile{sec9.tex}
 
-\printbibliography
+\setstretch{0.1}
+\pagestyle{plain}
+\renewcommand*{\bibfont}{\small}
+\printbibliography[
+heading=bibintoc,
+title={Bibliography},
+]
 \end{document}

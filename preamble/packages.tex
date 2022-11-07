@@ -1,8 +1,10 @@
 \usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage{csquotes}
+
 \usepackage{makeidx}
 \usepackage{tocbibind}%include toc in toc
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -26,7 +28,9 @@
 %%%geometry/spacing etc
 \usepackage[b5paper]{geometry}
 \usepackage{setspace}
-\setstretch{1.25}
+\usepackage{graphicx}               % Necessary to use \scalebox
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
 %%%
 
 \usepackage{titlesec}
@@ -34,9 +38,9 @@
 %%%%% header
 \usepackage{fancyhdr}
 \fancyhf{}
-\fancyhead[LE]{Effective versions of Chebotarev}
+\fancyhead[LE]{Effective versions of Chebotarev\hfill Typeset by the TeXromancers}
 \renewcommand{\sectionmark}[1]{ \markright{#1}{} }
-\fancyhead[RO]{\scshape Section \thesection: \rightmark}
+\fancyhead[RO]{Lagarias and Odlyzko\hfill\scshape Section \thesection: \rightmark}
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{\iffootnote{0pt}{0.3pt}}
 \fancyfoot[C]{\thepage}

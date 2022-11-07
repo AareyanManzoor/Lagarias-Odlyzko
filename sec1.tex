@@ -2,21 +2,83 @@
 \begin{document}
 \section{Introduction}
 
-Let $K$ be an algebraic number field (finite extension of the rationals $\mathbb Q$) and $L$ a normal extension of $K$ with Galois group $G = G(L/K)$. Let $\disc_L$ and $\disc_K$ denote the absolute values of the discriminants of $L$ and $K$, respectively, and let $n_L = [L:Q]$, $n_K = [K:Q]$. Throughout this paper $\p$ will denote a prime ideal of $K$ and $P$ a prime ideal of $L$. If $\p$ is a prime ideal of $K$ which is unramified in $L$, then we use the Artin symbol $\ArtinSymbol{L/K}{\mathfrak p}$ to denote the conjugacy class of Frobenius automorphisms corresponding to prime ideals $P\mid \p$. For each conjugacy class $C$ of $G$, we define
-\[ \pi_C (x, L/K) = \Bigg\vert \Big\{\p : \p \text{ unramified in } L,\, \ArtinSymbol{L/K}{\p} = C,\, \norm_{K/Q}\p \le x \Big\} \Bigg\vert. \]
-
+Let $K$ be an algebraic number field (finite extension of the rationals $\mathbb Q$) and $L$ a normal extension of $K$ with Galois group $G = G(L/K)$. Let $\disc_L$ and $\disc_K$ denote the absolute values of the discriminants of $L$ and $K$, respectively, and let $n_L = [L:\Q]$, $n_K = [K:\Q]$. Throughout this paper $\p$ will denote a prime ideal of $K$ and $P$ a prime ideal of $L$. If $\p$ is a prime ideal of $K$ which is unramified in $L$, then we use the Artin symbol $\ArtinSymbol{L/K}{\mathfrak p}$ to denote the conjugacy class of Frobenius automorphisms corresponding to prime ideals $P\mid \p$. For each conjugacy class $C$ of $G$, we define
+\[ \pi_C (x, L/K) = \bigg\vert \Big\{\p : \p \text{ unramified in } L,\, \ArtinSymbol{L/K}{\p} = C,\, \norm_{K/\Q}\p \le x \Big\} \bigg\vert. \]
 The Chebotarev density theorem \cite{15-Tschebotareff1926} asserts that
 \[\tag{1.1}\label{(1.1)} \pi_C (x, L/K) \sim \frac{|C|}{|G|} \Li(x) \hspace{1em} \text{as } x\to\infty, \]
-
 where $\Li(x)$ is the familiar logarithmic integral
 \[ \Li(x) = \int_2^x \frac{\dd t}{\log t} \sim \frac{x}{\log x} \hspace{1em}\text{as }x\to\infty \]
 
-The Chebotarev density theorem generalizes many of the classical results on the distribution of primes and prime ideals. For example, if we consider the trivial extension $L = K$ of $K$ ($K$ does not have to be normal over $\mathbb Q$, then there is only one conjugacy class, and (\ref{(1.1)}) shows that the number of prime ideals of $K$ with norm $\le x$ is asymptotic to $\Li(x)$, which is exactly the prime ideal theorem. If we let $K = \mathbb Q$ and $L = \mathbb Q(e^{2\pi i/q})$, then the conjugacy classes of $G$ correspond to the residue classes modulo $q$, and (\ref{(1.1)}) gives us the prime number theorem for arithmetic progressions.
+The Chebotarev density theorem generalizes many of the classical results on the distribution of primes and prime ideals. For example, if we consider the trivial extension $L = K$ of $K$ ($K$ does not have to be normal over $\mathbb Q$), then there is only one conjugacy class, and (\ref{(1.1)}) shows that the number of prime ideals of $K$ with norm $\le x$ is asymptotic to $\Li(x)$, which is exactly the prime ideal theorem. If we let $K = \mathbb Q$ and $L = \mathbb Q(e^{2\pi i/q})$, then the conjugacy classes of $G$ correspond to the residue classes modulo $q$, and (\ref{(1.1)}) gives us the prime number theorem for arithmetic progressions.
 
-One of the most important of the many applications of the Chebotarev density theorem deals with the group of an equation. Suppose that $f(x)$ is a monic polynomial whose coefficients are algebraic integers in $K$ and which is irreducible over $K$. Suppose further that $L$ is the splitting field of $f(x)$ over $K$. If we regard $G = G(L/K)$ as a permutation group acting on the roots of $f(x)$, then for almost all prime ideals $\p$ of $K$ the cycle structure of $\ArtinSymbol{L/K}{\p}$ depends on the factorization of $f(x)$ modulo $\p$, and vice versa. Thus if $G$ is known, then the Chebotarev density theorem tells us how often various factorizations occur as $\p$ runs through all the prime ideals of $K$. On the other hand, if we do not know $G$, then factoring $f(x)$ modulo the prime ideals of $K$ will yield the complete cycle structures of $G$, since by (\ref{(1.1)}) for every conjugacy class $C$ there are infinitely many primes $\p$ with $\ArtinSymbol{L/K}{\p} = C$. This can be very helpful in the determination of $G$ [\cite{16-waerden1970}, vol. 1, pp. 189-192], especially since by considering enough primes we can even determine the relative densities of elements of $G$ which have a given  cycle structure. (Unfortunately, sometimes this is not enough to determine $G$ completely, since it is possible to construct two nonisomorphic groups which have transitive permutation representations in which the number of elements with a given cycle structure is the same for both groups.) In these situations it is important to be able to compute a bound below which every conjugacy class will occur as the Artin symbol of a prime ideal of $K$.
+One of the most important of the many applications of the Chebotarev density theorem deals with the group of an equation. Suppose that $f(x)$ is a monic polynomial whose coefficients are algebraic integers in $K$ and which is irreducible over $K$. Suppose further that $L$ is the splitting field of $f(x)$ over $K$. If we regard $G = G(L/K)$ as a permutation group acting on the roots of $f(x)$, then for almost all prime ideals $\p$ of $K$ the cycle structure of $\ArtinSymbol{L/K}{\p}$ depends on the factorization of $f(x)$ modulo $\p$, and vice versa. Thus if $G$ is known, then the Chebotarev density theorem tells us how often various factorizations occur as $\p$ runs through all the prime ideals of $K$. On the other hand, if we do not know $G$, then factoring $f(x)$ modulo the prime ideals of $K$ will yield the complete cycle structures of $G$, since by (\ref{(1.1)}) for every conjugacy class $C$ there are infinitely many primes $\p$ with $\ArtinSymbol{L/K}{\p} = C$. This can be very helpful in the determination of $G$ \cite[vol. 1, pp. 189-192]{16-waerden1970}, especially since by considering enough primes we can even determine the relative densities of elements of $G$ which have a given  cycle structure. (Unfortunately, sometimes this is not enough to determine $G$ completely, since it is possible to construct two nonisomorphic groups which have transitive permutation representations in which the number of elements with a given cycle structure is the same for both groups.) In these situations it is important to be able to compute a bound below which every conjugacy class will occur as the Artin symbol of a prime ideal of $K$.
 
 The usual proofs of the Chebotarev theorem contains either no error estimates at all, or else estimates which contain constants depending in some undetermined way on the fields $K$ and $L$. In particular, such estimates do not allow us to specify effectively a value $x_0 = x_0(L/K)$ such that
-% \[ \tag{
+\[ \pi_C(x, L/K) > 0 \hspace{1em}\text{if} \hspace{1em} x\ge x_0. \tag{1.2}\label{(1.2)} \]
 
+The purpose of this paper is to prove two versions of the Chebotarev theorem, each of which has an error term which is an explicit and effectively computable function of $x$, $n_L$, $\disc_L$, and $|C|/|G|$. One version assumes the truth of the Generalized Riemann Hypothesis (GRH) and the other holds unconditionally.
+
+We first state the conditional result.
+
+\begin{theorem} \label{1.1}
+There exists an effectively computable positive absolute constant $c_1$ such that if GRH holds for the Dedekind zeta function of $L$, then for every $x>2$, 
+\[ \bigg| \pi_C(x, L/K) - \frac{|C|}{|G|} \Li(x) \bigg| \le c_1 \bigg\{ \frac{|C|}{|G|} x^{\frac{1}{2}} \log(\disc_L x^{n_L}) + \log \disc_L \bigg\}.\tag{1.3} \label{(1.3)} \]
+\end{theorem}
+
+This theorem yields immediately a value of $x_0$ such that (\ref{(1.2)}) holds. (We utilize here the estimate $n_L^{-1} \log \disc_L > 1 + \eps$ for some $\eps > 0$, valid for $n_L > 1$. It follows from Minkowski's discriminant bound, and it can also be derived from (\ref{(5.11)}) (see \cite{11-odlyzko1977}). 
+
+\begin{corollary} \label{1.2}
+There exists an effectively computable positive absolute constant $c_2$ such that if the GRH holds for the Dedekind zeta function of $L \ne \mathbb Q$, then for every conjugacy class of $G$ there exists an unramified prime ideal $\p$ in $K$ such that $\ArtinSymbol{L/K}{\p} = C$ and 
+\[ \tag{1.4}\label{(1.4)} \norm_{K/\mathbb Q} \p \le c_2(\log \disc_L)^2 (\log \log \disc_L)^4. \]
+(If $L = \mathbb Q$, $\p = (2)$ yields a solution.)
+\end{corollary}
+
+
+At the end of this paper we will indicate how the above estimate can be improved so as to eliminate the $\log \log \disc_L$ term.
+
+We next state the unconditional result.
+
+\begin{theorem} \label{1.3}
+If $n_L > 1$ then $\zeta_L(s)$ has at most one zero in the region defined by $s = \sigma +it$  with 
+\[ \tag{1.5}\label{(1.5)} 1 - (4\log\disc_L)^{-1} \le \sigma \le 1, \hspace{1em} |t| \le (4\log\disc_L)^{-1}. \]
+(If $n_L = 1$, $L = \mathbb Q$ and there is no zero in $|t| \le 14$, $\sigma > 0$.)
+\newline If such a zero exists, it must be real and simple, and we denote it by $\beta_0$. 
+
+Further, there exist absolute effectively computable constant $c_3$ and $c_4$ such that if
+\[ \tag{1.6}\label{(1.6)} x\ge \exp (10 n_L (\log \disc_L)^2 ), \]
+then
+\[ \tag{1.7}\label{(1.7)}
+    \bigg| \pi_C (x) - \frac{|C|}{|G|} \Li(x) \bigg| \le \frac{|C|}{|G|} \Li (x^{\beta_0}) + c_3x \exp \big(-c_4n_L^{-\frac{1}{2}}(\log x)^{\frac 12}\big),
+\]
+where the $\beta_0$ term is present only when $\beta_0$ exists.
+\end{theorem}
+
+Because of the presence of the $\beta_0$ factor, Theorem \ref{1.3} does not fully meet our criterion of effectiveness, which is that the error term should depend only on $x$, $n_L$, $\disc_L$, and $|C|/|G|$. However, this defect can be remedied by utilizing any effective bound for $\beta_0$. In most cases the best known such bound is that of Stark \cite[p.148]{13-Stark1974} which we quote below.
+
+\begin{theorem}\label{1.4}
+Let the notation be as in Theorem \ref{1.3}, and let $m_L = 4$ if $1$ is normal over $\mathbb Q$, $m_L = 16$ if there is a sequence of fields \[\mathbb Q = k_1 \subset k_1 \subset \cdots \subset k_r = L\] with each field normal over the preceding one, and $m_L = 4n_L!$ otherwise. Then there exists an effectively computable absolute constant $c_5$ such that
+\[ \beta_0 < \max \bigl[1- (m_L\log\disc_L)^{-1},\, 1-(c_5\disc_L^{1/n_L})^{-1}\bigr]. \tag{1.8}\label{(1.8)} \]
+\end{theorem}
+
+Even if $\beta_0$ does not exist, Theorem \ref{1.3} does not give a good unconditional bound for the smallest norm of a prime ideal whose Artin symbol is a given conjugacy class. A reasonable conjecture might be that there should be an effectively computable absolute constant $c$ such that for every normal extension $L/K$ and every conjugacy class $C$ of $G(L/K)$, there should be an unramified $\p$ with $\ArtinSymbol{L/K}{\p} = C$ and 
+\[ \norm_{K/\mathbb Q}\p \le (\log \disc_L)^c. \tag{1.9}\label{(1.9)} \]
+When $L$ is a cyclomic extension of $K = \mathbb Q$, (\ref{(1.9)}) is equivalent to Linnik's theorem \cite[p.39]{1-Bombieri1974}. However, if $K = \mathbb Q$ and $L = \mathbb Q(\sqrt{d})$ is a quadratic extension of $\mathbb Q$, the determinantion of the least prime $p$ with $\ArtinSymbol{L/\mathbb Q}{(p)} \ne \{1\}$ corresponds to the problem of determining the least quadratic nonresidue (mod $d$), and for this problem no unconditional bound better than
+\[ p \le c_6 \disc_L^{c_7} \tag{1.10}\label{(1.10)} \]
+is known, where $c_6$ and $c_7$ are positive constants. Thus without some major new ideas it would probably be very difficult to prove an unconditional result as good as (\ref{(1.9)}). However, by using slightly different techniques (which are designed to detect prime ideals rather than estimate their total number) one can prove the following result \cite{7-lagarias1979}.
+
+\begin{theorem*}
+There exist effectively computable positive absolute constants $b_1$ and $b_24$ such that for every conjugacy class $C$ of $G$ there exists an unramified prime ideal $\p$ of $K$ such that $\ArtinSymbol{L/K}{\p} = C$ and
+\[ \norm_{K/\Q} \p \le b_1 \disc_L^{b_2}. \]
+\end{theorem*}
+
+The approach used in this paper has a long history. The argument given here may be viewed as a direct descendent of de la Vallee Poussin's proof of the prime number theorem. We follow closely with the pattern of Davenport's treatment \cite{2-davenport2013multiplicative} of the prime number theorem for arithmetic progressions. The main innovation here is the careful treatment of the dependencies of various constants on $n_L$ and $\disc_L$ (cf. \cite{2-davenport2013multiplicative, 4.1-Fogels1961, 5-goldstein1970, 8-lang1971, 10-Moreno}).
+
+Aside from some slight acquaintance with algebraic and analytic number theory, this paper also assumes knowledge of the basic properties of Hecke and Artin $L$-functions \cite{6-Hilbronn1967}. The deepest of these results is the abelian reciprocity law, which tells us that an abelian Artin $L$-series is a Hecke $L$-series, and so is analytic for $s\ne 1$. 
+
+Throughout this paper $c_1, c_2, \dots$ will denote effectively computable positive absolute constants. (In particular, they are independent of $K$ and $L$.) The Vinogradov notation
+\[ f \Vinogradov g \]
+will be used to denote the existence of an effectively computable positive absolute constant $A$ (not necessary the esame in each occurance) such that
+\[ |f| \le Ag, \]
+in the range indicated.
 
 \end{document}

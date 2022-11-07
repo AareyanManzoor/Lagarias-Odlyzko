@@ -1,5 +1,71 @@
 \documentclass[./main]{subfiles}
 \begin{document}
 \section{The explicit formula}
+In this section we combine the results of preceding sections in order to obtain an explicit formula for $\psi_C(x)$ in terms of the zeroes $\rho$. 
 
+We first evaluate the integral $I_{\chi}(x,T,U)$ which was defined by (\ref{(6.2)}). We recall that $x \geq 2$, $U = j + 1/2$ for some non-negative integer $j$, and $T \geq 2$ does not equal the ordinate of any zero of any of the $\L(s, \chi)$. By Cauchy's theorem, $I_{\chi}(x,T,U)$ equals the sum of the residues of the integrand at poles inside $B_{T,U}$. Now if $\chi = \chi_1$, the principal character, then $\L'/\L$ has a first order pole of residue $-1$ at $s=1$, and hence (this term being absent if $\chi \neq \chi_1$) we obtain a contribution of 
+\[ -\delta(\chi)x
+\]
+from the possible pole at $s=1$. Further, $\L'/\L$ has a first order pole with residue $+1$ at each nontrivial zero $\rho$ of $\L(s, \chi)$ (the $\rho$'s are counted according to their multiplicity), and so such $\rho$'s contribute
+\[ \sum_{\rho} \frac{x^{\rho}}{\rho}.
+\]
+In addition, $\L'/\L$ has first order poles at the so-called trivial zeroes, which are real and nonpositive. In fact, (\ref{(6.7)}) shows that $\L'/\L$ has first order poles at $s = -(2m-1),\quad m=1,2,\dots$, where the residue is $b(\chi)$, and first order poles at $s=-2m,\quad m=0,1,2,\dots$, where the residue if $a(\chi)$. Hence the residues at points $s$ with $\Re(s) < 0$ contribute 
+\[ -b(\chi) \sum_{m=1}^{\lfloor(u+1)/2\rfloor} \frac{x^{-(2m-1)}}{2m-1} - a(\chi) \sum_{m=1}^{\lfloor U/2\rfloor} \frac{x^{-2m}}{2m}.
+\]
+The only remaining residue is at $s=0$, where we have the complication that both $x^s/s$ and $\L'/\L$ may have first order poles. The Laurent series expansions show that there exist functions $h_1(s)$ and $h_2(s)$ which are analytic at $s=0$ [$h_2(s)$ depends on $\chi$], such that 
+\[ \frac{x^s}{s} = \frac{1}{s} + \log x + h_1(s)s,
+\]
+and [using (\ref{(5.9)})]
+\[ \frac{\L'}{\L}(s, \chi) = \frac{a(\chi) - \delta(\chi)}{s} + r(\chi) +  h_2(s)s,
+\]
+where 
+\[\tag{7.1}\label{(7.1)} r(\chi) = B(\chi) - \frac{1}{2} \log A(\chi) + \frac{n_E}{2} \log\pi + \delta(\chi) - \frac{b(\chi)}{2}\frac{\Gamma'}{\Gamma}\Big(\frac{1}{2}\Big) - \frac{a(\chi)}{2}\frac{\Gamma'}{\Gamma}(1).\quad
+\]
+Hence the residue at $s=0$ is 
+\[ r(\chi) + (a(\chi) - \delta(\chi)) \log x
+.\]
+If we now collect all the residue terms, we find that 
+\begin{multline}\tag{7.2}\label{(7.2)} I_{\chi}(x,T,U) = - \delta(\chi)x + \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^{\rho}}{\rho} - b(\chi) + \sum_{m=1}^{\lfloor (u+1)/2\rfloor} \frac{x^{1-2m}}{2m-1} \\- a(\chi) \sum_{m=1}^{\lfloor u/2\rfloor} \frac{x^{-2m}}{2m} + r(\chi) + (a(\chi) - \delta(\chi)) \log(x).
+\end{multline}
+We now let $U \to  \infty$. Then (\ref{(7.2)}) and (\ref{(6.13)}) give us the explicit formula 
+\begin{multline}\tag{7.3}\label{(7.3)}
+    I_{\chi}(x,T) + \delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^{\rho}}{\rho} - r(\chi) - (a(\chi) - \delta(\chi))\log x \\ \hfill- \frac{n_E}{2} \log(1 - x^{-1}) + \frac{1}{2}(b(\chi)-a(\chi))\log(1+x^{-1}) \quad\quad\quad
+    \\
+    \Vinogradov \frac{x \log x}{T} \{\log A(\chi) + n_E \log T\},
+\end{multline}
+valid for all $x \geq 2$ and all $T \geq 2$ which do not coincide with the ordinate of a zero. If we now left $T \to \infty$, (\ref{(7.3)}) would give us an explicit formula for the inverse Mellin transform 
+\[ \frac{1}{2\pi i} \int_{\sigma_{0}-i\infty}^{\sigma_{0}+ i \infty} \frac{x^s}{s}\frac{\L'}{\L}(s, \chi) \dd{s}
+\]
+with no error term. However, for our purposes a cruder version of (\ref{(7.3)}) will be more useful.
+\begin{theorem}\label{7.1}\label{07-THM-7.1}
+If $x \geq 2$ and $T \geq 2$, then 
+\begin{multline}\tag{7.4}\label{(7.4)} 
+\psi_{C}(x) - \frac{|C|}{|G|}x  + S(x,T)
+\Vinogradov \frac{|C|}{|G|} \Big\{\frac{x \log x + T}{T}\log \disc_L  + n_L \log x+ \frac{n_L x \log x \log T}{T} \Big\}\\ + \log x \log \disc_L  + n_KxT^{-1}(\log x)^2,
+\end{multline}
+where 
+\[\tag{7.5}\label{(7.5)} S(x, T) = \frac{|C|}{|G|} \sum_{\chi} \xoverline{\chi}(g) \Bigg\{ \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^\rho}{\rho} - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Bigg\}.
+\]
+[The inner sums in (\ref{(7.5)}) are over the nontrivial zeroes $\rho$ of $\L(s, \chi)$]. 
+\end{theorem}
+\begin{proof}
+Lemma \ref{5.5} and (\ref{(5.4)}) show that 
+\[ r(\chi) - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Vinogradov \log A(\chi) + n_E,
+\]
+and so 
+\begin{multline*}I_{\chi}(x,T) + \delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^\rho}{\rho} - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} 
+\Vinogradov \log A(\chi) + n_E \log x + \frac{x \log x}{T} \{\log A(\chi) + n_E \log T\}.
+\end{multline*}
+Hence by (\ref{(5.1)}) and (\ref{(6.1)}) we have for $x \geq 2$, $T \geq 2$ [$T$ not coinciding with the ordinate of any zero $\rho$ of any $\L(s, \chi)$]
+\begin{multline*}
+    I_C(x,T) - \frac{|C|}{|G|} \sum_{\chi} \xoverline{\chi}(g) \Bigg\{\delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| <T} \frac{x^{\rho}}{\rho}} - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Bigg\} \\
+    \Vinogradov \frac{|C|}{|G|} \sum_{\chi} \Big\{\frac{x \log x + T}{T} \log A(\chi) + n_E \log x + \frac{n_E x \log x \log T}{T}\Big\}\\
+    \Vinogradov \frac{|C|}{|G|} \Big\{ \frac{x \log x + T}{T} \log \disc_L  + n_L \log x + \frac{n_L x \log x \log T}{T}\Big\}
+\end{multline*}
+since 
+\[ \sum_{\chi} \log A(\chi) = \log \disc_L 
+\]
+by the conductor-discriminant formula, and $n_E \cdot [L \colon E] = n_L$. Since \newline$\psi_{C}(x) = I_C(x,T) + R_{1}(x,T)$, where $R_{1}(x,T)$ satisfies (\ref{(3.18)}), we obtain the bound of the theorem, provided $T$ does not equal the ordinate $\gamma$ of some zero $\rho = \beta + i \gamma$. If, however, $T = \gamma$ for some $\rho$, then we evaluate (\ref{(7.4)}) with $T$ replaced with $T + \eps$ for a very small $\eps$, and let $\eps \to 0$. The possible discontinuity in the function on the left side comes from zeroes $\rho$ with $T = \gamma$, and since there are $\Vinogradov \sum n_{\chi}(T)$ of them, their contribution can be absorbed in the error term by increasing the constant implied by the $\Vinogradov$ notation.  
+\end{proof}
+The above theorem, which is the main result of this paper, serves to exhibit $\psi_{C}(x)$ as consisting of the main term $\frac{|C|}{|G|}x$, of $S(x,T)$, and of a relatively small remainder. In the rest of this paper we will be concerned with estimating $S(x,T)$. If we assume the GRH, then a good bound for $S(x,T)$ can be easily given with what we already know. In order to obtain an unconditional result, however, we need to show that the zeroes $\rho$ do not approach close to the line $\Re(s) = 1$.
 \end{document}
