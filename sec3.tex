@@ -78,24 +78,24 @@ We now write $R_0(x,T)=S_1+S_2+S_3$, where $S_1$ consists of those terms of (\re
 and so
 \[\tag{3.13}\label{(3.13)}
     S_1 \Vinogradov xT^{-1} \sum_{\p, m} (\norm\p)^{-m\sigma_0} \log \norm
-    = xT^{-1}\Big[-\frac{\zeta_K^{'}}{\zeta_K}(\sigma_0)\Big].
+    = xT^{-1}\Big[-\frac{\zeta_K' }{\zeta_K}(\sigma_0)\Big].
 \]
 To bound this term we use an auxiliary result.
 
 \begin{lemma}\label{3.2}
 For $\sigma>1$,
-\[-\frac{\zeta_K^{'}}{\zeta_K}(\sigma)\le -n_K \frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma). \]
+\[-\frac{\zeta_K' }{\zeta_K}(\sigma)\le -n_K \frac{\zeta_\Q ' }{\zeta_\Q }(\sigma). \]
 \end{lemma}
 \begin{proof}
 We have
-\[ -\frac{\zeta_K^{'}}{\zeta_K}(\sigma)=\sum_{\p}\frac{\log \norm\p}{(\norm\p)^\sigma-1}, \quad -\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)=\sum_p \frac{\log p}{p^\sigma-1}\]
+\[ -\frac{\zeta_K' }{\zeta_K}(\sigma)=\sum_{\p}\frac{\log \norm\p}{(\norm\p)^\sigma-1}, \quad -\frac{\zeta_\Q ' }{\zeta_\Q }(\sigma)=\sum_p \frac{\log p}{p^\sigma-1}\]
 where in the second sum $p$ runs through the rational primes. Now for each prime ideal $\p$, $\norm\p=p^k$ for some positive integer $k$. Thus
 \[ \frac{\log \norm\p}{(\norm\p)^\sigma-1}=\frac{k \log p}{p^{k\sigma}-1}=\frac{k}{p^{(k-1)\sigma}+ \dots +1 }\cdot \frac{\log p}{p^\sigma-1}\le \frac{\log p}{p^{\sigma}-1}. \]
 Also, there are at most $\norm_K$ distinct $\p$ lying over a given rational prime $p$, so that
-\[ -\frac{\zeta_K^{'}}{\zeta_K}(\sigma)\le n_K \sum_p \frac{\log p}{p^\sigma-1}=-n_k\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)\]
+\[ -\frac{\zeta_K' }{\zeta_K}(\sigma)\le n_K \sum_p \frac{\log p}{p^\sigma-1}=-n_k\frac{\zeta_\Q ' }{\zeta_\Q }(\sigma)\]
 \end{proof}
 Since 
-\[-\frac{\zeta_\Q ^{'}}{\zeta_\Q }(\sigma)\Vinogradov(\sigma-1)^{-1} \]
+\[-\frac{\zeta_\Q'}{\zeta_\Q }(\sigma)\Vinogradov(\sigma-1)^{-1} \]
 for $\sigma>1$, Lemma \ref{3.2}
 and (\ref{(3.13)}) show that for $T\ge 1$, 
 \[\tag{3.14}\label{(3.14)} S_1 \Vinogradov n_KxT^{-1}\log x.\]
