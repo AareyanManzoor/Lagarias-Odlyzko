@@ -2,7 +2,7 @@
 \begin{document}
 \section{Density of zeroes of Hecke \texorpdfstring{$\L$}{L}-functions}\setlength{\headheight}{22.54279pt}
 We have now shown that for $x\geq 2$ and $T\geq1$, say,
-\[\psi_C(x) = I_C{(x,t)} + R_1(x,T), \]
+\[\psi_C(x) = I_C{(x,T)} + R_1(x,T), \]
 where $R_1(x,T)$ satisfies (\ref{(3.18)}) and
 \[\tag{5.1}\label{(5.1)}I_C(x,T) = -\frac{\small|C\small|}{\small|G\small|}\sum_{\chi}{\xoverline{\chi}(g)\frac{1}{2\pi i}}\int_{\sigma_0-iT}^{\sigma_0+iT}{\frac{x^s}{s}\frac{\L'}{\L}(s,\chi,L/E)\dd{s}}, \]
 where $\sigma_0=1+\small(\log{x}\small)^{-1}$ and $\chi$ runs through the (one-dimensional) irreducible characters of $H=\langle g\rangle$. Our next goal will be to evaluate each of the integrals in (\ref{(5.1)}). [This turns out to be more convenient than integrating $F_C(s)$.] To accomplish this we will need some upper bounds on the number of singularities of $\L'/\L$.
@@ -25,7 +25,7 @@ then $\xi(s,\chi)$ satisfies the functional equation
 \[\label{(5.7)}\tag{5.7}\xi(1-s,\xoverline{\chi}) = W(\chi)\xi(s,\chi),\]
 where $W(\chi)$ is a certain constant of absolute value $1$. Furthermore, $\xi(s,\chi)$ is an entire function of order $1$ and does not vanish at $s=0$, and hence by the Hadamard product theorem we have
 \[\tag{5.8}\label{(5.8)}\xi(s,\chi) = e^{B_1(\chi)+B(\chi)s} \prod_{\rho}{\Big(1-\frac{s}{\rho}\Big)e^{s/\rho}}\]
-for some constants $B_1(\chi)$ and $B(\chi)$ where $\rho$ runs through all the zeroes of $\xi(s,\chi)$, which are precisely those zeroes $\rho = \beta + i\gamma$ of $L(x,\chi)$ for which $0<\beta<1$ [the so-called ``nontrivial zeroes'' of $\L(s,\chi)$]. [We recall that $\L(s,\chi)$ and hence $\xi(s,\chi)$ have no zeroes $\rho$ with $\Re{(\rho)}\geq1$.] From now on $\rho$ will denote the nontrivial zeroes of $\L(s,\chi)$.
+for some constants $B_1(\chi)$ and $B(\chi)$ where $\rho$ runs through all the zeroes of $\xi(s,\chi)$, which are precisely those zeroes $\rho = \beta + i\gamma$ of $L(s,\chi)$ for which $0<\beta<1$ [the so-called ``nontrivial zeroes'' of $\L(s,\chi)$]. [We recall that $\L(s,\chi)$ and hence $\xi(s,\chi)$ have no zeroes $\rho$ with $\Re{(\rho)}\geq1$.] From now on $\rho$ will denote the nontrivial zeroes of $\L(s,\chi)$.
 
 Since we are interested in the integrals in (\ref{(5.1)}), which involve $L'/L$, we differentiate (\ref{(5.6)}) and (\ref{(5.8)}) logarithmically to obtain the important identity
 \[\label{(5.9)}\tag{5.9}\frac{\L'}{\L}(s,\chi) = B(\chi) + \sum_{\rho}{\Big(\frac{1}{s-\rho}+\frac{1}{\rho}\Big)}-\frac{1}{2}\log{A(\chi)} - \delta(\chi)\Big[\frac{1}{s}+\frac{1}{s-1}\Big] - \frac{{\gamma'}_\chi}{\gamma_\chi}(s),\]

@@ -25,7 +25,7 @@ There exists an effectively computable positive absolute constant $c_1$ such tha
 \[ \bigg| \pi_C(x, L/K) - \frac{|C|}{|G|} \Li(x) \bigg| \le c_1 \bigg\{ \frac{|C|}{|G|} x^{\frac{1}{2}} \log(\disc_L x^{n_L}) + \log \disc_L \bigg\}.\tag{1.3} \label{(1.3)} \]
 \end{theorem}
 
-This theorem yields immediately a value of $x_0$ such that (\ref{(1.2)}) holds. (We utilize here the estimate $n_L^{-1} \log \disc_L > 1 + \eps$ for some $\eps > 0$, valid for $n_L > 1$. It follows from Minkowski's discriminant bound, and it can also be derived from (\ref{(5.11)}) (see \cite{11-odlyzko1977}). 
+This theorem yields immediately a value of $x_0$ such that (\ref{(1.2)}) holds. (We utilize here the uniform estimate $n_L^{-1}\log\disc_L \geq \log(\pi/2)>0$, valid for $n_L>1$, which follows from Minkowski's discriminant bound; see also \cite{11-odlyzko1977}.)\footnote{Editor's correction: the original claims $n_L^{-1}\log d_L>1+\eps$ for all $n_L>1$, which fails for $L=\Q(\sqrt{-3})$. The positive absolute lower bound stated here suffices. Indeed, Minkowski gives $\disc_L\geq(\pi/4)^{n_L}(n_L^{n_L}/n_L!)^2\geq\pi^{n_L}/4$, using $n^n/n!\geq2^{n-1}$ for $n\geq2$. For the standard Minkowski bound, see R.~Sharifi, \emph{Algebraic Number Theory}, Chapter~4, \url{https://math.ucla.edu/~sharifi/notes/algnum-ch04.html}.}
 
 \begin{corollary} \label{1.2}
 There exists an effectively computable positive absolute constant $c_2$ such that if the GRH holds for the Dedekind zeta function of $L \ne \mathbb Q$, then for every conjugacy class of $G$ there exists an unramified prime ideal $\p$ in $K$ such that $\ArtinSymbol{L/K}{\p} = C$ and 
@@ -56,7 +56,7 @@ where the $\beta_0$ term is present only when $\beta_0$ exists.
 Because of the presence of the $\beta_0$ factor, Theorem \ref{1.3} does not fully meet our criterion of effectiveness, which is that the error term should depend only on $x$, $n_L$, $\disc_L$, and $|C|/|G|$. However, this defect can be remedied by utilizing any effective bound for $\beta_0$. In most cases the best known such bound is that of Stark \cite[p.148]{13-Stark1974} which we quote below.
 
 \begin{theorem}\label{1.4}
-Let the notation be as in Theorem \ref{1.3}, and let $m_L = 4$ if $1$ is normal over $\mathbb Q$, $m_L = 16$ if there is a sequence of fields \[\mathbb Q = k_1 \subset k_1 \subset \cdots \subset k_r = L\] with each field normal over the preceding one, and $m_L = 4n_L!$ otherwise. Then there exists an effectively computable absolute constant $c_5$ such that
+Let the notation be as in Theorem \ref{1.3}, and let $m_L = 4$ if $L$ is normal over $\mathbb Q$,\footnote{Editor's correction: the original prints ``$1$'' in place of the field $L$.} $m_L = 16$ if there is a sequence of fields \[\mathbb Q = k_0 \subset k_1 \subset \cdots \subset k_r = L\] with each field normal over the preceding one, and $m_L = 4n_L!$ otherwise. Then there exists an effectively computable absolute constant $c_5$ such that
 \[ \beta_0 < \max \bigl[1- (m_L\log\disc_L)^{-1},\, 1-(c_5\disc_L^{1/n_L})^{-1}\bigr]. \tag{1.8}\label{(1.8)} \]
 \end{theorem}
 
@@ -67,11 +67,11 @@ When $L$ is a cyclomic extension of $K = \mathbb Q$, (\ref{(1.9)}) is equivalent
 is known, where $c_6$ and $c_7$ are positive constants. Thus without some major new ideas it would probably be very difficult to prove an unconditional result as good as (\ref{(1.9)}). However, by using slightly different techniques (which are designed to detect prime ideals rather than estimate their total number) one can prove the following result \cite{7-lagarias1979}.
 
 \begin{theorem*}
-There exist effectively computable positive absolute constants $b_1$ and $b_24$ such that for every conjugacy class $C$ of $G$ there exists an unramified prime ideal $\p$ of $K$ such that $\ArtinSymbol{L/K}{\p} = C$ and
+There exist effectively computable positive absolute constants $b_1$ and $b_2$ such that for every conjugacy class $C$ of $G$ there exists an unramified prime ideal $\p$ of $K$ such that $\ArtinSymbol{L/K}{\p} = C$ and
 \[ \norm_{K/\Q} \p \le b_1 \disc_L^{b_2}. \]
 \end{theorem*}
 
-The approach used in this paper has a long history. The argument given here may be viewed as a direct descendent of de la Vallee Poussin's proof of the prime number theorem. We follow closely with the pattern of Davenport's treatment \cite{2-davenport2013multiplicative} of the prime number theorem for arithmetic progressions. The main innovation here is the careful treatment of the dependencies of various constants on $n_L$ and $\disc_L$ (cf. \cite{2-davenport2013multiplicative, 4.1-Fogels1961, 5-goldstein1970, 8-lang1971, 10-Moreno}).
+The approach used in this paper has a long history. The argument given here may be viewed as a direct descendent of de la Vallee Poussin's proof of the prime number theorem. We follow closely with the pattern of Davenport's treatment \cite{2-davenport2013multiplicative} of the prime number theorem for arithmetic progressions. The main innovation here is the careful treatment of the dependencies of various constants on $n_L$ and $\disc_L$ (cf. \cite{2-davenport2013multiplicative, 4.1-Fogels1962, 4.2-Fogels1962, 4.3-Fogels1962, 5-goldstein1970, 8-lang1971, 10-Moreno}).
 
 Aside from some slight acquaintance with algebraic and analytic number theory, this paper also assumes knowledge of the basic properties of Hecke and Artin $L$-functions \cite{6-Hilbronn1967}. The deepest of these results is the abelian reciprocity law, which tells us that an abelian Artin $L$-series is a Hecke $L$-series, and so is analytic for $s\ne 1$. 
 

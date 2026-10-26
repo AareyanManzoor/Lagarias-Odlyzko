@@ -4,7 +4,7 @@
 In this section we will use the classical method to prove a zero-free region for $\zeta_L(s)$. Since 
 \[\tag{8.1}\label{(8.1)} \zeta_L(s) = \prod_{\chi} \L(s, \chi)
 \]
-and the $\L(s, \chi)$ are all analytic for $s \neq 1$, any zero-free region for $\zeta_L(s)$ immediately implies one for each of the $\L(s, \chi)$. This approach does have the serious disadvantage that one can often obtain directly with the $\L(s, \chi)$ (cf. \cite[Ch. 14]{2-davenport2013multiplicative}); in fact, one can essentially replace $\log \disc_L$ by $\max(\log A(\chi))$ and $n_L$ with $n_E$ in the estimates below. The problem with that result is that in general $n_E$ can be almost as large as $n_L$ and $\max(\log A(\chi))$ almost as large as $\disc_L$. Finally, we should mention that for a fixed $L$ a better zero-free region can be obtained by more sophisticated methods \cite{12-Sokolovskii}, but the published versions are not explicit as to the dependence on the field $L$.
+and the $\L(s, \chi)$ are all analytic for $s \neq 1$, any zero-free region for $\zeta_L(s)$ immediately implies one for each of the $\L(s, \chi)$. This approach does have the serious disadvantage that one can often obtain larger zero-free regions by working directly with the $\L(s, \chi)$ (cf. \cite[Ch. 14]{2-davenport2013multiplicative}); in fact, one can essentially replace $\log \disc_L$ by $\max(\log A(\chi))$ and $n_L$ with $n_E$ in the estimates below. The problem with that result is that in general $n_E$ can be almost as large as $n_L$ and $\max(\log A(\chi))$ almost as large as $\disc_L$. Finally, we should mention that for a fixed $L$ a better zero-free region can be obtained by more sophisticated methods \cite{12-Sokolovskii}, but the published versions are not explicit as to the dependence on the field $L$.
 \begin{lemma}\label{8.1}
 There is an absolute, effectively computable constant $c_8$ such that $\zeta_L(s)$ has no zeroes $\rho = \beta + i \gamma$ in the region 
 \begin{align*}
@@ -22,12 +22,12 @@ for $\sigma = \Re(s) > 1$, where $\alpha(m) \geq 0$ for all $m$. Hence
     = \sum_{m=1}^{\infty} \alpha(m)m^{-\sigma}(3 + 4\cos(t \log m) + \cos(2t \log m)) \geq 0
 \end{multline*}
 by the classical identity
-\[ 3 + 4\cos \theta + 2 \cos \theta = 2(1 + \cos \theta)^2 \geq 0
+\[ 3 + 4\cos \theta + \cos(2\theta) = 2(1 + \cos \theta)^2 \geq 0
 \]
 If we now consider the trivial normal extension $L$ of $L$, then $\zeta_L(s)$ is the Artin $\L$-function associated to the principal character, and if $\gamma_L(s)$ denotes the associated gamma factor then (\ref{(5.11)}) shows that 
 \[\tag{8.3}\label{(8.3)} 2 \frac{\zeta_L'}{\zeta_L}(s) = \sum_{\rho} \Big(\frac{1}{s-\rho} + \frac{1}{s-\xoverline{\rho}}\Big) - \log \disc_L - \frac{2}{s} - \frac{2}{s-1} - 2 \frac{\gamma_L'}{\gamma_L}(s),
 \]
-where the summation is over the nontrivial zeroes $\rho$ of $\zeta_L(s)$. We note here that if $\Re s > 1$, then $\Re(s-\rho)^{-1} > 0$ for each zero $\rho$. If $\rho = \beta + i \gamma$ is some particular zero with $\gamma \geq (1 + 4 \log \disc_L)^{-1}$, then we find that for $\sigma > 1$, 
+where the summation is over the nontrivial zeroes $\rho$ of $\zeta_L(s)$. We note here that if $\Re s > 1$, then $\Re(s-\rho)^{-1} > 0$ for each zero $\rho$. If $\rho = \beta + i \gamma$ is some particular zero with $|\gamma| \geq (1 + 4 \log \disc_L)^{-1}$, then we find that for $\sigma > 1$, 
 \begin{align*}
     -\frac{\zeta_L'}{\zeta_L}(\sigma) &\leq \frac{1}{\sigma - 1} + \frac{1}{\sigma} + \frac{1}{2}\log \disc_L + \frac{\gamma_L'}{\gamma_L}(\sigma) - \sum_{\rho} \Re(\sigma - \rho)^{-1} \\
     &\leq \frac{1}{\sigma - 1} + c_9 \log \disc_L + c_9n_L,
@@ -40,7 +40,7 @@ and
 \[-\Re \frac{\zeta_L'}{\zeta_L}(\sigma + i \gamma) \leq c_{11} \log \disc_L + c_{11}n_L \log(|\gamma| + 2) - \frac{1}{\sigma - \beta},
 \]
 where in the last inequality we have included the contribution of the zero \newline $\rho = \beta + i \gamma$. These inequalities and (\ref{(8.2)}) show that for all $\sigma > 1$
-\[ \frac{4}{\sigma - \beta} < \frac{3}{\sigma - \beta} + c_{12}\{\log \disc_L + n_L \log(|\gamma| + 2) \}
+\[ \frac{4}{\sigma - \beta} < \frac{3}{\sigma - 1} + c_{12}\{\log \disc_L + n_L \log(|\gamma| + 2) \}
 \]
 If we now set $\sigma = 1 + (100c_{12})^{-1}\{\log \disc_L + n_L \log(|\gamma|+2)\}^{-1}$, say, then we obtain the result of the lemma.
 \end{proof}

@@ -10,7 +10,7 @@ from the possible pole at $s=1$. Further, $\L'/\L$ has a first order pole with r
 \[ \sum_{\rho} \frac{x^{\rho}}{\rho}.
 \]
 In addition, $\L'/\L$ has first order poles at the so-called trivial zeroes, which are real and nonpositive. In fact, (\ref{(6.7)}) shows that $\L'/\L$ has first order poles at $s = -(2m-1),\quad m=1,2,\dots$, where the residue is $b(\chi)$, and first order poles at $s=-2m,\quad m=0,1,2,\dots$, where the residue if $a(\chi)$. Hence the residues at points $s$ with $\Re(s) < 0$ contribute 
-\[ -b(\chi) \sum_{m=1}^{\lfloor(u+1)/2\rfloor} \frac{x^{-(2m-1)}}{2m-1} - a(\chi) \sum_{m=1}^{\lfloor U/2\rfloor} \frac{x^{-2m}}{2m}.
+\[ -b(\chi) \sum_{m=1}^{\lfloor(U+1)/2\rfloor} \frac{x^{-(2m-1)}}{2m-1} - a(\chi) \sum_{m=1}^{\lfloor U/2\rfloor} \frac{x^{-2m}}{2m}.
 \]
 The only remaining residue is at $s=0$, where we have the complication that both $x^s/s$ and $\L'/\L$ may have first order poles. The Laurent series expansions show that there exist functions $h_1(s)$ and $h_2(s)$ which are analytic at $s=0$ [$h_2(s)$ depends on $\chi$], such that 
 \[ \frac{x^s}{s} = \frac{1}{s} + \log x + h_1(s)s,
@@ -25,7 +25,7 @@ Hence the residue at $s=0$ is
 \[ r(\chi) + (a(\chi) - \delta(\chi)) \log x
 .\]
 If we now collect all the residue terms, we find that 
-\begin{multline}\tag{7.2}\label{(7.2)} I_{\chi}(x,T,U) = - \delta(\chi)x + \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^{\rho}}{\rho} - b(\chi) + \sum_{m=1}^{\lfloor (u+1)/2\rfloor} \frac{x^{1-2m}}{2m-1} \\- a(\chi) \sum_{m=1}^{\lfloor u/2\rfloor} \frac{x^{-2m}}{2m} + r(\chi) + (a(\chi) - \delta(\chi)) \log(x).
+\begin{multline}\tag{7.2}\label{(7.2)} I_{\chi}(x,T,U) = - \delta(\chi)x + \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^{\rho}}{\rho} - b(\chi) \sum_{m=1}^{\lfloor (U+1)/2\rfloor} \frac{x^{1-2m}}{2m-1} \\- a(\chi) \sum_{m=1}^{\lfloor U/2\rfloor} \frac{x^{-2m}}{2m} + r(\chi) + (a(\chi) - \delta(\chi)) \log(x).
 \end{multline}
 We now let $U \to  \infty$. Then (\ref{(7.2)}) and (\ref{(6.13)}) give us the explicit formula 
 \begin{multline}\tag{7.3}\label{(7.3)}
@@ -49,16 +49,16 @@ where
 [The inner sums in (\ref{(7.5)}) are over the nontrivial zeroes $\rho$ of $\L(s, \chi)$]. 
 \end{theorem}
 \begin{proof}
-Lemma \ref{5.5} and (\ref{(5.4)}) show that 
-\[ r(\chi) - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Vinogradov \log A(\chi) + n_E,
+Lemma \ref{5.5} and (\ref{(5.4)}) show that\footnote{Editor's correction: the original has inconsistent signs for the small-zero sums in this proof. Lemma \ref{5.5} bounds $B(\chi)+\sum_{|\rho|<1/2}1/\rho$, so (\ref{(7.1)}) requires the plus sign here and in the next two displays. The definition (\ref{(7.5)}) is unchanged.}
+\[ r(\chi) + \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Vinogradov \log A(\chi) + n_E,
 \]
 and so 
-\begin{multline*}I_{\chi}(x,T) + \delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^\rho}{\rho} - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} 
+\begin{multline*}I_{\chi}(x,T) + \delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^\rho}{\rho} + \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} 
 \Vinogradov \log A(\chi) + n_E \log x + \frac{x \log x}{T} \{\log A(\chi) + n_E \log T\}.
 \end{multline*}
 Hence by (\ref{(5.1)}) and (\ref{(6.1)}) we have for $x \geq 2$, $T \geq 2$ [$T$ not coinciding with the ordinate of any zero $\rho$ of any $\L(s, \chi)$]
 \begin{multline*}
-    I_C(x,T) - \frac{|C|}{|G|} \sum_{\chi} \xoverline{\chi}(g) \Bigg\{\delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| <T} \frac{x^{\rho}}{\rho}} - \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Bigg\} \\
+    I_C(x,T) - \frac{|C|}{|G|} \sum_{\chi} \xoverline{\chi}(g) \Bigg\{\delta(\chi)x - \sum_{\substack{\rho \\ |\gamma| <T}} \frac{x^{\rho}}{\rho} + \sum_{\substack{\rho \\ |\rho| < \frac{1}{2}}} \frac{1}{\rho} \Bigg\} \\
     \Vinogradov \frac{|C|}{|G|} \sum_{\chi} \Big\{\frac{x \log x + T}{T} \log A(\chi) + n_E \log x + \frac{n_E x \log x \log T}{T}\Big\}\\
     \Vinogradov \frac{|C|}{|G|} \Big\{ \frac{x \log x + T}{T} \log \disc_L  + n_L \log x + \frac{n_L x \log x \log T}{T}\Big\}
 \end{multline*}

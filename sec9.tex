@@ -18,7 +18,7 @@ Therefore, for each $\chi$ there are no nontrivial zeros $\rho$ with $|\rho| < 1
 
 \begin{align*}
     \Bigg| \sum_{\substack{\rho \\ |\gamma| < T}} \frac{x^\rho}{\rho} + \sum_{|\rho| < \frac{1}{2}} \frac{1}{\rho} \Bigg| & \leq x^{\frac{1}{2}} \sum_{\substack{\rho \\ |\gamma| < T}} \frac{1}{|\rho|} \\
-    & \ll x^{\frac{1}{2}} \sum_{j=1}^{\lfloor T\rfloor} \frac{n_X(j)}{j} \\
+    & \ll x^{\frac{1}{2}} \sum_{j=1}^{\lfloor T\rfloor} \frac{n_\chi(j)}{j} \\
     & \ll x^{\frac{1}{2}} (\log A(\chi) + n_E \log T)\log T,
 \end{align*}
 which together with (\ref{(7.5)}) implies 
@@ -92,13 +92,13 @@ This shows that the estimates of Theorems \ref{09-THM-9.1} and \ref{09-THM-9.2} 
 Theorems \ref{1.1} and \ref{1.3} now follow from these estimates for $\theta_C(x)$ by simple partial summation arguments.
 
 We conclude this paper by indicating one way in which the GRH estimate  of Corollary \ref{1.2} can be slightly improved.
-Instead of integrating
+Instead of integrating\footnote{Editor's correction: the original writes $F_C(x)$ in both integrands below. Since the contour variable is $s$, the Dirichlet series defined in (\ref{(3.5)}) is $F_C(s)$.}
 \[
-\frac{1}{2\pi i} \frac{x^s}{s} F_C(x),
+\frac{1}{2\pi i} \frac{x^s}{s} F_C(s),
 \]
 we can integrate
 \[
-\frac{1}{2\pi i} \Bigl(\frac{y^{s-1} - x^{s-1}}{s - 1}\Bigr)^{2} F_C(x),
+\frac{1}{2\pi i} \Bigl(\frac{y^{s-1} - x^{s-1}}{s - 1}\Bigr)^{2} F_C(s),
 \]
 where $y > x > 1$,
 along the contour $B_{T, U}$ of Section \ref{6}.
